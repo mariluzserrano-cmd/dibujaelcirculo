@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Día 8 · El Príncipe de Paz · Dibuja el Círculo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root{
+    --brown:#4A3222;
+    --gold:#B8892B;
+    --wine:#6E2C3A;
+    --cream:#F5EFE3;
+    --terracotta:#B5602F;
+    --olive:#6E6B3A;
+    --stone:#8C8577;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    padding:40px 16px;
+    background:var(--cream);
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(184,137,43,0.08), transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(110,44,58,0.08), transparent 40%);
+    font-family:'Open Sans', Arial, sans-serif;
+    color:var(--brown);
+  }
+
+  .page{
+    max-width:680px;
+    margin:0 auto;
+    background:#FFFFFF;
+    border:1px solid rgba(140,133,119,0.35);
+    border-radius:4px;
+    box-shadow:0 6px 24px rgba(74,50,34,0.10);
+    overflow:visible;
+  }
+
+  .band{
+    height:6px;
+    background:linear-gradient(90deg, var(--wine), var(--gold), var(--terracotta));
+    border-radius:4px 4px 0 0;
+  }
+
+  header{
+    position:relative;
+    text-align:center;
+    padding:44px 30px 22px;
+    background:var(--cream);
+    border-bottom:1px solid rgba(140,133,119,0.3);
+  }
+
+  .day-circle{
+    position:absolute;
+    top:-26px;
+    left:50%;
+    transform:translateX(-50%);
+    width:56px;height:56px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Open Sans', Arial, sans-serif;
+    font-weight:700;
+    font-size:24px;
+    color:var(--wine);
+    background:#fff;
+    box-shadow:0 3px 8px rgba(74,50,34,0.18);
+  }
+
+  .kicker{
+    font-family:'Open Sans', Arial, sans-serif;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--stone);
+    margin:14px 0 6px;
+  }
+
+  h1.title{
+    font-family:'Open Sans', Arial, sans-serif;
+    font-weight:700;
+    font-size:30px;
+    color:var(--wine);
+    margin:0 0 4px;
+  }
+
+  .subtitle{
+    font-style:italic;
+    font-size:19px;
+    color:var(--terracotta);
+    margin:0 0 16px;
+  }
+
+  .meta{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    font-size:15px;
+    color:var(--brown);
+  }
+
+  .meta span{
+    background:#fff;
+    border:1px solid rgba(184,137,43,0.4);
+    border-radius:20px;
+    padding:4px 14px;
+  }
+
+  .meta b{ color:var(--wine); }
+
+  main{ padding:8px 32px 10px; }
+
+  h2.section-title{
+    font-family:'Open Sans', Arial, sans-serif;
+    font-size:19px;
+    color:var(--wine);
+    margin:32px 0 10px;
+    padding-bottom:6px;
+    border-bottom:1px solid rgba(184,137,43,0.35);
+  }
+
+  h2.section-title.first{ margin-top:26px; }
+
+  .reading{
+    margin:14px 0 8px;
+    border-left:4px solid var(--gold);
+    background:linear-gradient(180deg, rgba(184,137,43,0.06), transparent 60%);
+    border-radius:0 6px 6px 0;
+    padding:18px 22px;
+  }
+
+  .reading.apoc{
+    border-left-color:var(--wine);
+    background:linear-gradient(180deg, rgba(110,44,58,0.05), transparent 60%);
+  }
+
+  .reading h3{
+    font-family:'Open Sans', Arial, sans-serif;
+    font-size:18px;
+    margin:0 0 2px;
+    color:var(--wine);
+  }
+
+  .reading.apoc h3{ color:var(--brown); }
+
+  .ref{
+    font-size:13px;
+    letter-spacing:0.5px;
+    color:var(--terracotta);
+    text-transform:uppercase;
+    margin-bottom:10px;
+    display:block;
+  }
+
+  .verse-text{
+    font-size:19px;
+    line-height:1.6;
+    color:#3a2a1c;
+    margin:0 0 6px;
+  }
+
+  .verse-num{
+    font-weight:700;
+    color:var(--gold);
+    font-size:13px;
+    vertical-align:super;
+    margin-right:2px;
+  }
+
+  .eco-text p{
+    font-size:19px;
+    line-height:1.65;
+    color:#3a2a1c;
+    margin:0 0 12px;
+  }
+
+  .vida-box{
+    background:#FBF6EC;
+    border:1px solid rgba(184,137,43,0.5);
+    border-left:4px solid var(--gold);
+    border-radius:6px;
+    padding:18px 22px;
+  }
+
+  .vida-box .pista{
+    font-style:italic;
+    font-weight:600;
+    font-size:19px;
+    color:var(--wine);
+    margin:0;
+  }
+
+  .oracion-box{
+    background:var(--cream);
+    border:1px solid rgba(184,137,43,0.35);
+    border-radius:6px;
+    padding:20px 24px;
+    font-size:19px;
+    line-height:1.7;
+    color:#3a2a1c;
+    font-style:italic;
+  }
+
+  .circle-activity{
+    margin:14px 0 6px;
+    text-align:center;
+    padding:22px 24px;
+    background:var(--brown);
+    color:var(--cream);
+    border-radius:8px;
+  }
+
+  .circle-activity .pregunta{
+    font-size:20px;
+    font-weight:600;
+    font-style:italic;
+    margin:0 0 16px;
+    line-height:1.5;
+  }
+
+  .circle-activity .instruccion{
+    font-size:17px;
+    font-style:normal;
+    line-height:1.6;
+    margin:0 0 18px;
+    color:#EDE3D3;
+  }
+
+  .circle-graphic{
+    width:120px;height:120px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    margin:0 auto 18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .circle-graphic .linea{
+    width:78px;
+    height:1px;
+    background:rgba(245,239,227,0.5);
+  }
+
+  .frase-dia{
+    font-size:19px;
+    font-style:italic;
+    font-weight:600;
+    color:var(--gold);
+    margin:0;
+    padding-top:14px;
+    border-top:1px solid rgba(184,137,43,0.4);
+  }
+
+  .profundizar{
+    background:#fff;
+    border:1px dashed rgba(140,133,119,0.5);
+    border-radius:6px;
+    padding:18px 22px;
+    font-size:17px;
+    color:var(--olive);
+  }
+
+  .profundizar .palabras{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:10px 0 12px;
+  }
+
+  .profundizar .palabras span{
+    background:rgba(110,107,58,0.10);
+    border:1px solid rgba(110,107,58,0.35);
+    border-radius:14px;
+    padding:3px 12px;
+    font-size:15px;
+    color:var(--olive);
+  }
+
+  .profundizar .pregunta{
+    font-style:italic;
+    color:var(--brown);
+    margin:0;
+  }
+
+  footer{
+    text-align:center;
+    padding:22px 30px 30px;
+    font-size:13px;
+    color:var(--stone);
+    border-top:1px solid rgba(140,133,119,0.3);
+    margin-top:20px;
+  }
+
+  footer .lector{
+    font-family:'Open Sans', Arial, sans-serif;
+    font-size:15px;
+    color:var(--wine);
+    margin-bottom:6px;
+  }
+
+  @media (max-width:480px){
+    main{padding:8px 20px 10px;}
+    header{padding:44px 20px 20px;}
+    h1.title{font-size:25px;}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="band"></div>
+    <header>
+      <div class="day-circle">8</div>
+      <p class="kicker">Dibuja el Círculo · Ronda 12</p>
+      <h1 class="title">El Príncipe de Paz</h1>
+      <p class="subtitle">La paz tiene nombre</p>
+      <div class="meta">
+        <span><b>Día 8</b></span>
+        <span>Lunes, 17 de agosto</span>
+        <span>Lectora: <b>Meriemil</b></span>
+        <span>Categoría: <b>Dios</b></span>
+      </div>
+    </header>
+
+    <main>
+      <h2 class="section-title first">📖 Lectura de hoy</h2>
+
+      <section class="reading isa">
+        <h3>Isaías 9</h3>
+        <span class="ref">Lectura panorámica: Isaías 9 completo (opcional) · Texto focal: Isaías 9:2, 6–7 · NTV</span>
+        <p class="verse-text">
+          <span class="verse-num">2</span>El pueblo que camina en oscuridad verá una gran luz. Para aquellos que viven en una tierra de densa oscuridad, brillará una luz.
+        </p>
+        <p class="verse-text">
+          <span class="verse-num">6</span>Pues nos ha nacido un niño, un hijo se nos ha dado; el gobierno descansará sobre sus hombros, y será llamado: Consejero Maravilloso, Dios Poderoso, Padre Eterno, Príncipe de Paz.
+          <span class="verse-num">7</span>Su gobierno y la paz nunca tendrán fin. Reinará con imparcialidad y justicia desde el trono de su antepasado David por toda la eternidad. ¡El ferviente compromiso del Señor de los Ejércitos Celestiales hará que esto suceda!
+        </p>
+      </section>
+
+      <section class="reading apoc">
+        <h3>Apocalipsis 1</h3>
+        <span class="ref">Lectura panorámica: Apocalipsis 1 completo (opcional) · Texto focal: Apocalipsis 1:5–8 · NTV</span>
+        <p class="verse-text">
+          <span class="verse-num">5</span>...y de Jesucristo. Él es el testigo fiel de estas cosas, el primero en resucitar de los muertos y el gobernante de todos los reyes del mundo. Toda la gloria sea al que nos ama y nos ha libertado de nuestros pecados al derramar su sangre por nosotros.
+          <span class="verse-num">6</span>Él ha hecho de nosotros un reino de sacerdotes para Dios, su Padre. ¡A él sea toda la gloria y el poder por siempre y para siempre! Amén.
+          <span class="verse-num">7</span>¡Miren! Él viene en las nubes del cielo. Y todos lo verán, incluso aquellos que lo traspasaron. Y todas las naciones del mundo se lamentarán por él. ¡Sí! ¡Amén!
+          <span class="verse-num">8</span>«Yo soy el Alfa y la Omega, el principio y el fin —dice el Señor Dios—. Yo soy el que es, que siempre era y que aún está por venir, el Todopoderoso».
+        </p>
+      </section>
+
+      <h2 class="section-title">🔔 Descubriendo el eco</h2>
+      <div class="eco-text">
+        <p>Isaías anuncia el nacimiento de un niño cuyo gobierno descansará sobre sus hombros: Consejero Maravilloso, Dios Poderoso, Padre Eterno, Príncipe de Paz. Setecientos años más tarde, Juan contempla a ese mismo Rey ya glorificado: el testigo fiel, el gobernante de todos los reyes del mundo, el Alfa y la Omega.</p>
+        <p>Isaías profetiza al Príncipe que viene. Juan contempla al Príncipe que ya reina. Uno mira hacia adelante desde la promesa; el otro mira hacia atrás desde el cumplimiento. Y ambos apuntan a la misma verdad: el gobierno de Jesús no depende de que el mundo esté en calma. Su paz es la paz de quien ya se sienta en el trono, hoy y por toda la eternidad.</p>
+      </div>
+
+      <h2 class="section-title">❤️ ¿Qué significa para mi vida?</h2>
+      <div class="eco-text">
+        <p>Vivimos rodeados de razones legítimas para perder la paz: noticias, facturas, diagnósticos, relaciones que se tensan. Con facilidad dejamos que la ansiedad ocupe el lugar que le pertenece al Príncipe de Paz.</p>
+        <p>Pero la paz que ofrece Jesús no depende de que las circunstancias mejoren primero. Es la paz de quien ya reina, de quien ya venció, de quien "el gobierno descansa sobre sus hombros" y no sobre los míos.</p>
+        <p>Hoy no se trata de fingir que todo está bien. Se trata de recordar quién sostiene el gobierno mientras yo respondo desde otro lugar: no desde el miedo, sino desde la certeza de que Su Reino no tiene fin.</p>
+      </div>
+      <div class="vida-box">
+        <p class="pista">Pista para hoy: Elegir una respuesta de paz que refleje el Reino de Jesús.</p>
+      </div>
+
+      <h2 class="section-title">🙏 Mi oración</h2>
+      <div class="oracion-box">
+        Señor Jesús, Príncipe de Paz,<br><br>
+        Hoy quiero recordar que tu gobierno nunca tendrá fin, aunque mi día se sienta incierto.<br>
+        Ayúdame a no responder desde el miedo ni desde la ansiedad, sino desde la paz que solo Tú puedes dar.<br>
+        Que en cada palabra y decisión de hoy se note que mi corazón le pertenece a tu Reino.<br><br>
+        Amén.
+      </div>
+
+      <h2 class="section-title">⭕ Dibuja el Círculo</h2>
+      <div class="circle-activity">
+        <p class="pregunta">¿En qué situación concreta puedo elegir hoy una respuesta de paz que refleje el Reino de Jesús?</p>
+        <div class="circle-graphic">
+          <div class="linea"></div>
+          <div class="linea"></div>
+        </div>
+        <p class="instruccion">Escribe dentro de tu círculo una situación que actualmente te provoca tensión. Debajo, escribe una respuesta posible que se parezca más a Jesús que a tu reacción automática. Practícala hoy.</p>
+        <p class="frase-dia">Frase del día: "Jesús, que mi respuesta refleje tu paz."</p>
+      </div>
+
+      <h2 class="section-title">🌿 Para profundizar (opcional)</h2>
+      <div class="profundizar">
+        <p>Mientras releas ambos pasajes, busca estas palabras o imágenes y subráyalas:</p>
+        <div class="palabras">
+          <span>👑 Príncipe de Paz</span>
+          <span>🕊️ Gobierno</span>
+          <span>✨ Alfa y Omega</span>
+          <span>📜 Testigo fiel</span>
+          <span>🔥 Reino de sacerdotes</span>
+        </div>
+        <p class="pregunta">¿Qué área de mi vida necesita hoy la paz del gobierno de Jesús, y no la mía?</p>
+      </div>
+    </main>
+
+    <footer>
+      <p class="lector">Meriemil</p>
+      <p>Hermanos y Hermanas Circuleños · Ronda 12 · Siempre el protagonista es Jesús<br>
+      Texto bíblico: Nueva Traducción Viviente (NTV) © Tyndale House Foundation</p>
+    </footer>
+  </div>
+</body>
+</html>
