@@ -223,22 +223,55 @@
   }
 
   .read-online{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
     margin-top:4px;
     font-size:14px;
     font-weight:600;
     color:var(--wine);
-    text-decoration:none;
-    border-bottom:1px solid rgba(110,44,58,0.4);
-    padding-bottom:1px;
+    background:rgba(110,44,58,0.07);
+    border:1px solid rgba(110,44,58,0.25);
+    border-radius:6px;
+    padding:7px 14px;
+    cursor:pointer;
+    font-family:'Open Sans', Arial, sans-serif;
   }
 
   .reading.apoc .read-online{
     color:var(--terracotta);
-    border-bottom-color:rgba(181,96,47,0.4);
+    background:rgba(181,96,47,0.07);
+    border-color:rgba(181,96,47,0.25);
   }
 
-  .read-online:hover{ opacity:0.8; }
+  .read-online:hover{ opacity:0.85; }
+
+  .inline-reading{
+    display:none;
+    margin-top:12px;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid rgba(140,133,119,0.3);
+    background:#fff;
+  }
+
+  .inline-reading.open{ display:block; }
+
+  .inline-reading iframe{
+    width:100%;
+    height:420px;
+    border:0;
+    display:block;
+  }
+
+  .inline-fallback{
+    display:block;
+    text-align:center;
+    font-size:12px;
+    color:var(--stone);
+    padding:8px;
+    text-decoration:underline;
+  }
 
   .verse-text{
     font-size:19px;
@@ -450,13 +483,21 @@
       <section class="reading isa">
         <h3>Isaías 6</h3>
         <span class="ref">Leer el capítulo completo · NTV · Tiempo aproximado: 3–4 minutos</span>
-        <a class="read-online" href="https://www.biblegateway.com/passage/?search=Isa%C3%ADas%206&version=NVI" target="_blank" rel="noopener">📖 Leer Isaías 6 en línea (NVI) →</a>
+        <button class="read-online" type="button" onclick="toggleReading('isa6frame', 'https://www.biblegateway.com/passage/?search=Isa%C3%ADas%206&version=NVI&interface=print')">📖 Leer Isaías 6 aquí ↓</button>
+        <div id="isa6frame" class="inline-reading">
+          <iframe loading="lazy" title="Isaías 6 · NVI"></iframe>
+          <a href="https://www.biblegateway.com/passage/?search=Isa%C3%ADas%206&version=NVI" target="_blank" rel="noopener" class="inline-fallback">¿No carga? Abrir en pestaña nueva →</a>
+        </div>
       </section>
 
       <section class="reading apoc">
         <h3>Apocalipsis 4</h3>
         <span class="ref">Leer el capítulo completo · NTV · Tiempo aproximado: 3 minutos</span>
-        <a class="read-online" href="https://www.biblegateway.com/passage/?search=apocalipsis%204&version=NVI" target="_blank" rel="noopener">📖 Leer Apocalipsis 4 en línea (NVI) →</a>
+        <button class="read-online" type="button" onclick="toggleReading('apoc4frame', 'https://www.biblegateway.com/passage/?search=apocalipsis%204&version=NVI&interface=print')">📖 Leer Apocalipsis 4 aquí ↓</button>
+        <div id="apoc4frame" class="inline-reading">
+          <iframe loading="lazy" title="Apocalipsis 4 · NVI"></iframe>
+          <a href="https://www.biblegateway.com/passage/?search=apocalipsis%204&version=NVI" target="_blank" rel="noopener" class="inline-fallback">¿No carga? Abrir en pestaña nueva →</a>
+        </div>
       </section>
 
       <h2 class="section-title">🔔 Descubriendo el eco</h2>
@@ -518,6 +559,13 @@
       <p>Hermanos y Hermanas Circuleños · Ronda 12 · Siempre el protagonista es Jesús<br>
       Texto bíblico: Nueva Traducción Viviente (NTV) © Tyndale House Foundation</p>
     </footer>
-  </div>
+  </div>  <script>
+    function toggleReading(id, url){
+      var box = document.getElementById(id);
+      var iframe = box.querySelector('iframe');
+      if(!iframe.src){ iframe.src = url; }
+      box.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
