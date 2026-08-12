@@ -68,6 +68,79 @@
     height:auto;
   }
 
+  .bitacora{
+    margin:26px 0 6px;
+    border:1px solid rgba(184,137,43,0.4);
+    border-radius:10px;
+    background:linear-gradient(135deg, rgba(184,137,43,0.06), rgba(110,44,58,0.04));
+    padding:4px 0;
+  }
+
+  .bitacora summary{
+    cursor:pointer;
+    list-style:none;
+    padding:14px 20px;
+    font-weight:700;
+    font-size:15px;
+    color:var(--wine);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .bitacora summary::-webkit-details-marker{ display:none; }
+
+  .bitacora summary::after{
+    content:"▾";
+    color:var(--gold);
+    font-size:14px;
+    margin-left:10px;
+    transition:transform 0.2s ease;
+  }
+
+  .bitacora[open] summary::after{ transform:rotate(180deg); }
+
+  .bitacora-list{
+    list-style:none;
+    margin:0;
+    padding:0 20px 16px;
+  }
+
+  .bitacora-list li{ margin:0; }
+
+  .bitacora-list a{
+    display:block;
+    padding:10px 12px;
+    margin:4px 0;
+    border-radius:6px;
+    background:rgba(255,255,255,0.6);
+    border:1px solid rgba(140,133,119,0.25);
+    color:var(--brown);
+    text-decoration:none;
+    font-size:14px;
+  }
+
+  .bitacora-list a:hover{ background:rgba(255,255,255,0.95); }
+
+  .bitacora-current{
+    display:block;
+    padding:10px 12px;
+    margin:4px 0;
+    border-radius:6px;
+    background:rgba(110,44,58,0.10);
+    border:1px solid rgba(110,44,58,0.3);
+    color:var(--wine);
+    font-size:14px;
+    font-style:italic;
+  }
+
+  .bitacora-num{
+    display:inline-block;
+    font-weight:700;
+    color:var(--terracotta);
+    margin-right:6px;
+  }
+
   .day-circle{
     position:absolute;
     top:-26px;
@@ -552,6 +625,15 @@
         </div>
         <p class="pregunta">¿Qué descubro acerca del carácter de Dios que no había notado antes?</p>
       </div>
+
+      <details class="bitacora">
+        <summary>📚 Bitácora · Días publicados de la Ronda 12</summary>
+        <ul class="bitacora-list">
+          <li><span class="bitacora-current"><span class="bitacora-num">Día 1</span> Dios en su gloria · Levanta la mirada (estás aquí)</span></li>
+          <li><a href="https://mariluzserrano-cmd.github.io/dibujaelcirculo/dia2-12cvaronda.html" target="_blank" rel="noopener"><span class="bitacora-num">Día 2</span> La adoración que responde · Devuelve la gloria</a></li>
+          <li><a href="https://mariluzserrano-cmd.github.io/dibujaelcirculo/dia3-12varonda.html" target="_blank" rel="noopener"><span class="bitacora-num">Día 3</span> El pecado rompe la comunión · Vuelve al centro</a></li>
+        </ul>
+      </details>
     </main>
 
     <footer>
