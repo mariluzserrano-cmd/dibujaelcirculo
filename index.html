@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dibuja el Círculo · Ronda 12 — Apertura Metodológica</title>
+<style>
+  :root{
+    --brown:#3C2818;
+    --brown2:#2B1B10;
+    --wine:#6E3550;
+    --gold:#C9A24B;
+    --gold-lt:#E4C77A;
+    --terra:#C0704F;
+    --cream:#F7F1E4;
+    --cream2:#EFE6D2;
+    --ink:#3C2818;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Georgia','Cambria',serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3{ font-family:'Cambria','Georgia',serif; }
+  .wrap{ max-width:980px; margin:0 auto; padding:0 24px; }
+
+  /* HEADER */
+  header{
+    background:var(--brown);
+    padding:56px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  header .ring{
+    position:absolute; border-radius:50%; border:2px solid var(--wine);
+    top:-140px; right:-120px; width:340px; height:340px;
+  }
+  header .ring2{
+    position:absolute; border-radius:50%; border:2px solid var(--terra);
+    bottom:-100px; left:-80px; width:220px; height:220px; border-color:var(--gold);
+  }
+  header .inner{ position:relative; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+  header img.logo{ width:110px; height:auto; flex-shrink:0; }
+  header .eyebrow{
+    font-family:Arial,sans-serif; letter-spacing:3px; text-transform:uppercase;
+    font-size:12px; font-weight:700; color:var(--gold-lt); margin-bottom:6px;
+  }
+  header h1{ font-size:34px; color:var(--cream); margin-bottom:6px; }
+  header p.sub{ color:var(--gold-lt); font-style:italic; font-size:16px; }
+
+  /* SECTIONS */
+  section{ padding:52px 0; border-bottom:1px solid #E1D3AE; }
+  section:last-of-type{ border-bottom:none; }
+  section h2{
+    font-size:26px; color:var(--wine); margin-bottom:6px;
+    border-left:5px solid var(--gold); padding-left:14px;
+  }
+  section .desc{ font-family:Arial,sans-serif; color:#7a6a4a; font-size:14.5px; margin:10px 0 26px 19px; }
+
+  /* THANK YOU BANNER */
+  .thanks{
+    background:var(--cream2); border:1px solid var(--gold);
+    border-radius:12px; padding:22px 26px; margin:34px 0 0;
+    font-style:italic; color:var(--brown); font-size:16px;
+  }
+
+  /* VIDEO */
+  .video-frame{
+    position:relative; width:100%; padding-top:56.25%;
+    border-radius:14px; overflow:hidden; border:3px solid var(--gold);
+    background:var(--brown2); margin-left:19px; max-width:calc(100% - 19px);
+  }
+  .video-frame iframe{
+    position:absolute; top:0; left:0; width:100%; height:100%; border:0;
+  }
+
+  /* PRESENTATION */
+  .pdf-frame{
+    width:calc(100% - 19px); margin-left:19px; height:640px;
+    border-radius:12px; border:3px solid var(--gold); overflow:hidden;
+    background:#fff;
+  }
+  .pdf-frame iframe{ width:100%; height:100%; border:0; }
+  .btn-row{ display:flex; gap:14px; margin:20px 0 0 19px; flex-wrap:wrap; }
+  .btn{
+    font-family:Arial,sans-serif; font-weight:700; font-size:14px;
+    text-decoration:none; padding:12px 22px; border-radius:30px;
+    display:inline-block; transition:opacity .15s;
+  }
+  .btn:hover{ opacity:0.85; }
+  .btn-primary{ background:var(--wine); color:var(--cream); }
+  .btn-secondary{ background:transparent; color:var(--wine); border:1.5px solid var(--wine); }
+
+  /* BACKGROUNDS GRID */
+  .bg-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:22px; margin-left:19px;
+  }
+  .bg-card{
+    background:#fff; border:1px solid #E1D3AE; border-radius:12px; overflow:hidden;
+  }
+  .bg-card img{ width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
+  .bg-card .bg-foot{
+    padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
+    font-family:Arial,sans-serif;
+  }
+  .bg-card .bg-label{ font-size:13px; font-weight:700; color:var(--brown); }
+  .bg-card a{
+    font-family:Arial,sans-serif; font-size:12px; font-weight:700;
+    color:var(--wine); text-decoration:none; border:1.3px solid var(--wine);
+    padding:6px 14px; border-radius:20px;
+  }
+  .bg-card a:hover{ background:var(--wine); color:var(--cream); }
+
+  /* NEXT MEETING */
+  .next{
+    background:var(--wine); border-radius:16px; padding:40px 36px;
+    margin-left:19px; position:relative; overflow:hidden;
+  }
+  .next .ring3{
+    position:absolute; border-radius:50%; border:2px solid var(--gold);
+    top:-90px; right:-90px; width:220px; height:220px;
+  }
+  .next h3{ color:var(--cream); font-size:24px; margin-bottom:8px; position:relative; }
+  .next .when{ color:var(--gold-lt); font-family:Arial,sans-serif; font-weight:700; font-size:16px; margin-bottom:4px; position:relative;}
+  .next .focus{ color:var(--cream); font-style:italic; margin-bottom:22px; position:relative; }
+  .next a.meet-btn{
+    position:relative; display:inline-block; background:var(--gold); color:var(--brown);
+    font-family:Arial,sans-serif; font-weight:700; font-size:14px; text-decoration:none;
+    padding:13px 26px; border-radius:30px;
+  }
+  .next a.meet-btn:hover{ background:var(--gold-lt); }
+
+  /* FOOTER */
+  footer{
+    background:var(--brown2); text-align:center; padding:40px 24px;
+  }
+  footer img{ width:70px; margin-bottom:14px; }
+  footer p{
+    color:var(--gold-lt); font-style:italic; font-size:14.5px; max-width:500px;
+    margin:0 auto;
+  }
+  footer .fine{
+    font-family:Arial,sans-serif; color:#8A7358; font-size:11px; margin-top:18px;
+  }
+
+  @media (max-width:600px){
+    header h1{ font-size:26px; }
+    .pdf-frame{ height:420px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ring"></div>
+  <div class="ring2"></div>
+  <div class="wrap inner">
+    <img class="logo" src="assets/logo.png" alt="Hermanos Circuleños">
+    <div>
+      <div class="eyebrow">Dibuja el Círculo · Ronda 12</div>
+      <h1>Apertura Metodológica</h1>
+      <p class="sub">¿Cómo leer Isaías y Apocalipsis? + primeros ecos · 13 de agosto de 2026</p>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="thanks">
+    Gracias, Circuleños y Circuleñas, por acompañarnos en este primer encuentro. Aquí les dejamos la grabación completa, la presentación para repasar en casa, y los fondos de Meet para los próximos encuentros. 🌿
+  </div>
+
+  <section>
+    <h2>La grabación del encuentro</h2>
+    <p class="desc">Para quienes no pudieron estar en vivo — el audio completo del encuentro, con la presentación en pantalla.</p>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/1uajl8UDtso" title="Apertura Metodológica · Ronda 12" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section>
+    <h2>La presentación</h2>
+    <p class="desc">Repásala aquí mismo, o descárgala para tenerla contigo.</p>
+    <div class="pdf-frame">
+      <iframe src="assets/Apertura_Ronda12_Circulenos.pdf" title="Presentación Apertura Metodológica"></iframe>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="assets/Apertura_Ronda12_Circulenos.pdf" download>Descargar PDF</a>
+      <a class="btn btn-secondary" href="assets/Apertura_Ronda12_Circulenos.pptx" download>Descargar PowerPoint</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Fondos para Google Meet</h2>
+    <p class="desc">Descárgalos y actívalos en tus próximos encuentros — Configuración → Cambiar fondo → Subir imagen.</p>
+    <div class="bg-grid">
+      <div class="bg-card">
+        <img src="assets/thumb_fondo-meet-1a.jpg" alt="Fondo Meet · versión 1">
+        <div class="bg-foot">
+          <span class="bg-label">Fondo · versión A</span>
+          <a href="assets/fondo-meet-1a.png" download>Descargar</a>
+        </div>
+      </div>
+      <div class="bg-card">
+        <img src="assets/thumb_fondo-meet-1b.jpg" alt="Fondo Meet · versión 2">
+        <div class="bg-foot">
+          <span class="bg-label">Fondo · versión B</span>
+          <a href="assets/fondo-meet-1b.png" download>Descargar</a>
+        </div>
+      </div>
+      <div class="bg-card">
+        <img src="assets/thumb_fondo-meet-1c.jpg" alt="Fondo Meet · versión 3">
+        <div class="bg-foot">
+          <span class="bg-label">Fondo · versión C</span>
+          <a href="assets/fondo-meet-1c.png" download>Descargar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:none;">
+    <h2>Próximo encuentro</h2>
+    <p class="desc">Aparta la fecha — nos conectamos puntuales.</p>
+    <div class="next">
+      <div class="ring3"></div>
+      <h3>🔔 Encuentro 2 · Cierre del Bloque I</h3>
+      <div class="when">Jueves 20 de agosto · 7:07 – 8:08 p. m. (America/Puerto_Rico)</div>
+      <div class="focus">Enfoque: lo que estamos descubriendo de Dios</div>
+      <a class="meet-btn" href="https://meet.google.com/npn-svjt-djj" target="_blank" rel="noopener">Unirme por Google Meet</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <img src="assets/logo.png" alt="Hermanos Circuleños">
+  <p>"Desde el Profeta hasta la Revelación, siempre el protagonista es Jesús."</p>
+  <div class="fine">Hermanos y Hermanas Circuleños · Dibuja el Círculo · Ronda 12</div>
+</footer>
+
+</body>
+</html>
