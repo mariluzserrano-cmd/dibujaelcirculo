@@ -105,6 +105,36 @@
     text-decoration:underline;
   }
 
+  .audio-box{
+    margin:14px 0 6px;
+    padding:20px 22px;
+    background:linear-gradient(135deg, rgba(184,137,43,0.10), rgba(110,44,58,0.06));
+    border:1px solid rgba(184,137,43,0.4);
+    border-radius:10px;
+    text-align:center;
+  }
+
+  .audio-box iframe{
+    border-radius:6px;
+    display:block;
+    margin:0 auto;
+  }
+
+  .audio-caption{
+    margin:12px 0 4px;
+    font-style:italic;
+    font-size:16px;
+    color:var(--brown);
+  }
+
+  .audio-fallback{
+    display:inline-block;
+    margin-top:6px;
+    font-size:13px;
+    color:var(--wine);
+    text-decoration:underline;
+  }
+
   .day-image{
     margin:14px auto 0;
     max-width:420px;
@@ -492,7 +522,14 @@
     </header>
 
     <main>
-      <h2 class="section-title first">📖 Lectura de hoy</h2>
+      <h2 class="section-title first">🎧 Escucha el audio del Día 12</h2>
+      <div class="audio-box">
+        <iframe width="300" height="60" src="https://vocaroo.com/embed/1C4rwlGd7Xrk?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+        <p class="audio-caption">Escucha el audio del Día 12 y luego haz tu lectura con calma.</p>
+        <a class="audio-fallback" href="https://voca.ro/1C4rwlGd7Xrk" target="_blank" rel="noopener">View on Vocaroo →</a>
+      </div>
+
+      <h2 class="section-title">📖 Lectura de hoy</h2>
 
       <section class="reading isa">
         <h3>Isaías 13–23</h3>
