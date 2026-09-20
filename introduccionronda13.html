@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Día 1 de Dibuja el Círculo, Ronda 13: el hábito de aislarse con Jesús.">
+
+  <title>Día 1 · Aislamiento · Dibuja el Círculo</title>
+
+  <style>
+    :root {
+      --marron: #4a3222;
+      --dorado: #b8892b;
+      --vino: #6e2c3a;
+      --crema: #f5efe3;
+      --terracota: #b5602f;
+      --olivo: #6e6b3a;
+      --gris: #70695e;
+      --papel: #fffdfa;
+      --borde: rgba(140, 133, 119, .28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 26px 14px 48px;
+      background:
+        radial-gradient(
+          circle at 8% 5%,
+          rgba(184, 137, 43, .10),
+          transparent 32%
+        ),
+        var(--crema);
+      color: var(--marron);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    .pagina {
+      max-width: 760px;
+      margin: auto;
+      overflow: hidden;
+      background: var(--papel);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(74, 50, 34, .12);
+    }
+
+    .franja {
+      height: 7px;
+      background: linear-gradient(
+        90deg,
+        var(--vino),
+        var(--dorado),
+        var(--terracota)
+      );
+    }
+
+    .cabecera {
+      padding: 32px 28px 26px;
+      text-align: center;
+      background: var(--crema);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .logo {
+      display: block;
+      width: 115px;
+      height: auto;
+      margin: 0 auto 14px;
+    }
+
+    .etiqueta {
+      margin: 0 0 10px;
+      color: var(--olivo);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--vino);
+      font-size: clamp(29px, 6vw, 42px);
+    }
+
+    .subtitulo {
+      margin: 10px 0 20px;
+      color: var(--terracota);
+      font-family: Georgia, serif;
+      font-size: clamp(20px, 4vw, 25px);
+      font-style: italic;
+    }
+
+    .datos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .datos span {
+      padding: 6px 12px;
+      border: 1px solid rgba(184, 137, 43, .43);
+      border-radius: 25px;
+      background: rgba(255, 255, 255, .75);
+      font-size: 13px;
+    }
+
+    .datos b {
+      color: var(--vino);
+    }
+
+    .imagen-dia {
+      margin: 0 0 20px;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background: var(--papel);
+    }
+
+    .imagen-dia img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      padding: 9px 12px;
+      color: var(--gris);
+      font-size: 12px;
+    }
+
+    .presentacion {
+      padding: 22px;
+      border: 1px solid rgba(184, 137, 43, .42);
+      border-left: 4px solid var(--vino);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .8);
+      text-align: left;
+    }
+
+    .presentacion h2 {
+      margin-top: 0;
+      color: var(--vino);
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    .epigrafe {
+      margin: 24px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(184, 137, 43, .34);
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    cite {
+      display: block;
+      margin-top: 9px;
+      color: var(--terracota);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-style: normal;
+    }
+
+    main {
+      padding: 8px 34px 28px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .titulo-seccion {
+      margin: 32px 0 14px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid rgba(184, 137, 43, .36);
+      color: var(--vino);
+      font-size: 22px;
+    }
+
+    .destacado {
+      font-size: 18px;
+    }
+
+    .caja {
+      margin: 16px 0;
+      padding: 21px;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+    }
+
+    .caja > :last-child {
+      margin-bottom: 0;
+    }
+
+    .caja h3 {
+      margin: 0 0 12px;
+      color: var(--vino);
+      font-size: 18px;
+    }
+
+    .jesus {
+      border-left: 4px solid var(--vino);
+      background: rgba(110, 44, 58, .055);
+    }
+
+    .habito,
+    .libreta {
+      border-left: 4px solid var(--olivo);
+      background: rgba(110, 107, 58, .07);
+    }
+
+    .habito h3 {
+      color: var(--olivo);
+    }
+
+    .practica {
+      border-left: 4px solid var(--dorado);
+      background: #fbf6ec;
+    }
+
+    .accion {
+      padding: 15px;
+      border-radius: 8px;
+      background: white;
+      color: var(--vino);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .oracion {
+      background: linear-gradient(
+        135deg,
+        rgba(181, 96, 47, .07),
+        rgba(184, 137, 43, .05)
+      );
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+
+    .versiculo {
+      margin: 16px 0;
+      padding: 22px;
+      border-left: 4px solid var(--dorado);
+      border-radius: 0 10px 10px 0;
+      background: rgba(184, 137, 43, .08);
+    }
+
+    .versiculo p {
+      font-family: Georgia, serif;
+      font-size: 22px;
+    }
+
+    .ayudas {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ayudas li {
+      padding: 13px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .ayudas b {
+      color: var(--vino);
+    }
+
+    .nota {
+      color: var(--gris);
+      font-size: 13px;
+    }
+
+    .libreta ol {
+      padding-left: 22px;
+    }
+
+    .libreta li {
+      margin-bottom: 10px;
+    }
+
+    .pregunta {
+      padding: 15px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .85);
+      color: var(--vino);
+      font-weight: bold;
+    }
+
+    .multimedia {
+      margin: 22px 0;
+      padding: 22px;
+      border: 1px solid rgba(184, 137, 43, .45);
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        rgba(184, 137, 43, .10),
+        rgba(110, 44, 58, .05)
+      );
+      text-align: center;
+    }
+
+    .multimedia h2 {
+      margin: 0 0 10px;
+      color: var(--vino);
+      font-size: 20px;
+    }
+
+    .audio {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      height: 60px;
+      margin: 16px auto 10px;
+      border: 0;
+    }
+
+    a {
+      color: var(--vino);
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--dorado);
+      outline-offset: 5px;
+    }
+
+    .video {
+      margin: 16px 0 12px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border-radius: 9px;
+      background: #2f2118;
+    }
+
+    .video iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    details {
+      margin: 25px 0;
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: rgba(245, 239, 227, .4);
+    }
+
+    summary {
+      padding: 16px;
+      color: var(--vino);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .contenido-desplegable {
+      padding: 0 20px 18px;
+    }
+
+    .fuentes {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--borde);
+      color: var(--gris);
+      font-size: 12px;
+    }
+
+    .fuentes h2 {
+      color: var(--marron);
+      font-size: 16px;
+    }
+
+    .fuentes li {
+      margin-bottom: 9px;
+    }
+
+    footer {
+      padding: 23px;
+      background: var(--crema);
+      color: var(--vino);
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 0;
+      }
+
+      .pagina {
+        border: 0;
+        border-radius: 0;
+      }
+
+      .cabecera {
+        padding: 25px 18px;
+      }
+
+      main {
+        padding: 8px 20px 25px;
+      }
+
+      .ayudas {
+        grid-template-columns: 1fr;
+      }
+
+      .multimedia {
+        padding: 18px 12px;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .pagina {
+        max-width: none;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .multimedia {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <article class="pagina">
+    <div class="franja" aria-hidden="true"></div>
+
+    <header class="cabecera">
+
+      <!-- IMAGEN 1: coloca aquí el archivo del logo oficial nuevo. -->
+      <img
+        class="logo"
+        src="logo-circulenos.png"
+        alt="Logo oficial de Hermanos Circuleños"
+      >
+
+      <p class="etiqueta">Dibuja el Círculo · Ronda 13</p>
+
+      <h1>Día 1 · Aislamiento</h1>
+
+      <p class="subtitulo">Haz espacio para escuchar</p>
+
+      <div class="datos" aria-label="Datos del día">
+        <span><b>Fecha:</b> 20 de septiembre de 2026</span>
+        <span><b>Hábito:</b> retirarse intencionalmente</span>
+        <span><b>Guía:</b> Mariluz</span>
+      </div>
+
+      <!-- IMAGEN 2: ilustración del día, no fotografía del libro. -->
+      <figure class="imagen-dia">
+        <img
+          src="dia-01-aislamiento.png"
+          alt="Jesús se retira a un lugar tranquilo al amanecer para orar"
+        >
+        <figcaption>
+          Día 1 · Una pausa para escuchar al Padre.
+        </figcaption>
+      </figure>
+
+      <div class="presentacion">
+        <p class="etiqueta">El hábito de Jesús</p>
+        <h2>Un lugar tranquilo para volver al Padre</h2>
+        <p>
+          Aislarse no es desaparecer de la vida ni rechazar a las
+          personas. Es apartar, por un momento, el ruido y las demandas
+          para estar con Dios, recibir perspectiva y recuperar el corazón.
+        </p>
+      </div>
+
+      <blockquote class="epigrafe">
+        “Los que dicen que viven en Dios deben vivir como Jesús vivió.”
+        <cite>1 Juan 2:6 · NTV</cite>
+      </blockquote>
+    </header>
+
+    <main>
+
+      <section class="multimedia" aria-labelledby="titulo-audio">
+        <h2 id="titulo-audio">🎙️ Escucha el audio del día</h2>
+        <p class="nota">
+          Una reflexión para acompañar el hábito de aislarse con Jesús.
+        </p>
+
+        <iframe
+          class="audio"
+          src="https://vocaroo.com/embed/1mLcPhMJwCbM?autoplay=0"
+          title="Audio del día 1: Aislamiento"
+          allow="autoplay"
+        ></iframe>
+
+        <a
+          href="https://voca.ro/1mLcPhMJwCbM"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir el audio en Vocaroo ↗</a>
+      </section>
+
+      <section aria-labelledby="pasaje">
+        <h2 class="titulo-seccion" id="pasaje">📖 Pasaje guía</h2>
+
+        <blockquote class="versiculo">
+          <p>
+            “Antes del amanecer, Jesús se levantó y salió de la casa
+            para ir a un lugar aislado, a orar.”
+          </p>
+          <cite>Marcos 1:35 · NTV</cite>
+        </blockquote>
+      </section>
+
+      <section aria-labelledby="mirando">
+        <h2 class="titulo-seccion" id="mirando">👣 Mirando a Jesús</h2>
+
+        <p class="destacado">
+          Jesús conocía el cansancio. Escuchaba multitudes, peticiones,
+          opiniones, críticas e interrupciones. Aun así, no esperó a
+          sentirse desocupado para retirarse.
+        </p>
+
+        <div class="caja jesus">
+          <h3>Su aislamiento tenía un propósito</h3>
+          <p>
+            Se apartaba para estar con el Padre, orar, recuperar fuerzas
+            y discernir el próximo paso. El silencio no lo alejaba de
+            su misión; lo volvía a centrar en ella.
+          </p>
+          <p>
+            Si Jesús hizo espacio para escuchar a Dios en medio de una
+            vida llena de demandas, nosotros también podemos comenzar
+            con una práctica pequeña y honesta.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="ejemplo">
+        <h2 class="titulo-seccion" id="ejemplo">
+          🔗 Del ejemplo al hábito
+        </h2>
+
+        <p>
+          El capítulo presenta el aislamiento como una retirada breve
+          —o más prolongada— del ruido cotidiano para relacionarnos con
+          Dios y permitir que se renueven nuestras fuerzas emocionales
+          y espirituales. No se trata de huir de quienes amamos, sino
+          de volver a ellos con una presencia más disponible.
+        </p>
+
+        <p>
+          En los Evangelios vemos a Jesús buscar distintos lugares:
+          un sitio desierto, el monte, la orilla del lago. El lugar puede
+          cambiar; la intención permanece: escuchar, descansar, orar
+          y regresar.
+        </p>
+
+        <ul class="ayudas" aria-label="Cuatro ayudas para comenzar">
+          <li><b>Medita:</b> lleva una frase de la Escritura contigo.</li>
+          <li><b>Desconéctate:</b> deja el teléfono fuera de alcance.</li>
+          <li><b>Concéntrate:</b> permite que el silencio baje el ritmo.</li>
+          <li><b>Relájate:</b> respira; no tienes que producir nada.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="idea-habito">
+        <h2 class="titulo-seccion" id="idea-habito">
+          🧠 Una sola idea de la ciencia del hábito
+        </h2>
+
+        <div class="caja habito">
+          <h3>Contexto y señales</h3>
+          <p>
+            Una práctica se vuelve más posible cuando tiene un momento,
+            un lugar y una señal reconocible. No dependas de “cuando
+            tenga tiempo”. Decide de antemano:
+          </p>
+          <p>
+            <em>
+              Después de ___, en ___, dejaré el teléfono y guardaré
+              cinco minutos con Jesús.
+            </em>
+          </p>
+          <p>
+            Esta es la conexión práctica con James Clear: diseñar el
+            contexto para que el hábito pueda aparecer. La herramienta
+            sirve a la relación con Jesús; no la reemplaza.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="uno-por-ciento">
+        <h2 class="titulo-seccion" id="uno-por-ciento">
+          ⚛️ Mi 1 % de hoy
+        </h2>
+
+        <div class="caja practica">
+          <h3>La práctica mínima</h3>
+          <p class="accion">
+            Reserva 5 minutos sin teléfono, en un lugar específico,
+            para sentarte delante de Dios.
+          </p>
+          <p>
+            Lee Marcos 1:35 lentamente. No tienes que llenar el silencio
+            con muchas palabras. Puedes comenzar diciendo:
+            <em>“Jesús, aquí estoy. Enséñame a escucharte.”</em>
+          </p>
+          <p class="nota">
+            Si cinco minutos hoy son demasiado, comienza con uno.
+            Volver también cuenta.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="mi-vida">
+        <h2 class="titulo-seccion" id="mi-vida">
+          ❤️ ¿Qué significa para mi vida?
+        </h2>
+
+        <p>
+          Tal vez llevas días respondiendo a todo y escuchándote muy poco.
+          Tal vez estás cansada, cansado, saturada o saturado, y piensas
+          que apartarte es un lujo. Jesús nos muestra otra posibilidad:
+          la soledad con Dios puede ser una forma de cuidado, claridad
+          y obediencia.
+        </p>
+        <p>
+          No necesitas una montaña ni una habitación perfecta.
+          Necesitas una señal sencilla y la disposición de regresar.
+          Hoy no buscamos hacerlo perfecto; buscamos abrir un espacio real.
+        </p>
+      </section>
+
+      <section aria-labelledby="mi-oracion">
+        <h2 class="titulo-seccion" id="mi-oracion">🙏 Mi oración</h2>
+
+        <div class="caja oracion">
+          <p>
+            Jesús, tú conoces el ruido que llevo por dentro y las demandas
+            que me rodean. Enséñame a retirarme contigo sin culpa y sin
+            prisa. Muéstrame un lugar y un momento para escucharte.
+            Renueva mis fuerzas, ordena mi corazón y ayúdame a regresar
+            a mi día con tu paz. Amén.
+          </p>
+        </div>
+      </section>
+
+      <!-- Dibuja el Círculo va inmediatamente después de la oración. -->
+      <section aria-labelledby="dibuja">
+        <h2 class="titulo-seccion" id="dibuja">⭕ Dibuja el Círculo</h2>
+
+        <p>
+          Busca tu libreta. Hoy no vamos a resolver esta práctica en la
+          pantalla: vamos a atar la mente con la mano y dejar una huella
+          concreta de nuestra decisión.
+        </p>
+
+        <div class="caja libreta">
+          <h3>En tu libreta, dibuja un círculo y escribe dentro:</h3>
+
+          <ol>
+            <li>
+              <b>Señal:</b>
+              ¿después de qué actividad recordaré retirarme?
+            </li>
+            <li>
+              <b>Momento:</b>
+              ¿a qué hora reservaré mis cinco minutos?
+            </li>
+            <li>
+              <b>Lugar:</b>
+              ¿dónde me sentaré sin teléfono?
+            </li>
+            <li>
+              <b>Decisión:</b>
+              completa la frase: “Hoy haré espacio para escuchar
+              a Jesús cuando…”
+            </li>
+          </ol>
+
+          <p class="pregunta">
+            Al terminar, escribe una frase breve:
+            <em>¿qué ruido necesito soltar para volver a escuchar?</em>
+          </p>
+        </div>
+
+        <p class="nota">
+          La bitácora del sitio puede acompañarte, pero este círculo
+          se dibuja con tu mano en tu libreta.
+          Allí queda tu respuesta de hoy.
+        </p>
+      </section>
+
+      <details>
+        <summary>🌿 Para profundizar · Opcional</summary>
+
+        <div class="contenido-desplegable">
+          <p>
+            Lee estos pasajes y observa qué ocurre antes, durante
+            y después de que Jesús se aparta:
+          </p>
+          <ul>
+            <li>
+              <b>Marcos 1:35:</b>
+              Jesús se levanta temprano para orar.
+            </li>
+            <li>
+              <b>Marcos 6:31–32:</b>
+              Jesús invita a descansar en un lugar apartado.
+            </li>
+            <li>
+              <b>Lucas 6:12–13:</b>
+              antes de escoger a los doce, pasa la noche orando.
+            </li>
+            <li>
+              <b>Mateo 14:22–23:</b>
+              después de despedir a la multitud, sube al monte a orar.
+            </li>
+          </ul>
+          <p>
+            <em>
+              ¿Qué fruto aparece en mi vida cuando hago espacio
+              para estar con Dios?
+            </em>
+          </p>
+        </div>
+      </details>
+
+      <section class="multimedia" aria-labelledby="musica">
+        <h2 id="musica">🎵 Música para cerrar</h2>
+        <p class="nota">
+          Un momento musical para permanecer en la reflexión del día.
+        </p>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/RiH9rIWT9OA"
+            title="Música para cerrar el día 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <a
+          href="https://www.youtube.com/watch?v=RiH9rIWT9OA"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Escuchar en YouTube ↗</a>
+      </section>
+
+      <section class="fuentes" aria-labelledby="creditos">
+        <h2 id="creditos">Fuentes y créditos</h2>
+
+        <ul>
+          <li>
+            <strong>Recorrido:</strong>
+            Dibuja el Círculo · Ronda 13.
+            Introducción: 19 de septiembre de 2026.
+            Prácticas diarias: 20 de septiembre–29 de octubre de 2026.
+          </li>
+          <li>
+            <strong>Lectura base:</strong>
+            Jay Dennis, <em>Los hábitos de Jesús</em>,
+            capítulo “El hábito de aislarse”, pp. 11–21 de la edición
+            compartida. El contenido se presenta como síntesis y
+            aplicación devocional, no como reproducción íntegra.
+          </li>
+          <li>
+            <strong>Biblia:</strong>
+            Marcos 1:35 y 1 Juan 2:6, Nueva Traducción Viviente.
+            Lecturas complementarias: Marcos 6:31–32;
+            Lucas 6:12–13; Mateo 14:22–23.
+          </li>
+          <li>
+            <strong>Puente práctico:</strong>
+            ideas de James Clear sobre señales, contexto y planificación
+            de hábitos. La práctica espiritual presentada es una
+            aplicación para esta comunidad, no una cita textual del autor.
+          </li>
+          <li>
+            <strong>Dirección del recorrido:</strong>
+            Mariluz Serrano Ortiz · Comunidad Circuleños y Circuleñas.
+          </li>
+          <li>
+            <strong>Identidad visual:</strong>
+            logo oficial de Hermanos Circuleños e ilustración
+            preparada para esta ronda.
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer>
+      Caminemos con Jesús… un círculo a la vez.
+    </footer>
+  </article>
+</body>
+</html>
