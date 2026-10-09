@@ -297,7 +297,7 @@
 
     <section aria-labelledby="t-peticion" id="caja-peticion">
       <h2 id="t-peticion">¿Por qué quieres que oremos?</h2>
-      <p class="ayuda">Si tienes una petición, escríbela aquí. Solo la verá el equipo de oración.</p>
+      <p class="ayuda">Si tienes una petición, escríbela aquí; solo la verá el equipo de oración. Si no encuentras las palabras, está bien: Dios conoce tu corazón.</p>
       <div class="campo"><label for="peticion">Mi petición</label><textarea id="peticion"></textarea></div>
       <button class="boton" id="b-peticion">Enviar mi petición</button>
       <p class="estado error" id="error-peticion" aria-live="assertive"></p>
@@ -474,13 +474,19 @@ $("b-presente-nueva").addEventListener("click", async () => {
 /* --- Petición --- */
 $("b-peticion").addEventListener("click", async () => {
   const texto = $("peticion").value.trim();
-  if (!texto) { $("error-peticion").textContent = "Escribe tu petición antes de enviarla."; return; }
+  if (!texto) {
+    $("error-peticion").textContent = "";
+    $("peticion-enviada").innerHTML = "<strong>Está bien.</strong> Dios conoce tu corazón. 💕";
+    $("caja-peticion").hidden = true; $("peticion-enviada").hidden = false; $("peticion-enviada").focus();
+    return;
+  }
   $("error-peticion").textContent = "";
   const btn = $("b-peticion");
   btn.disabled = true; btn.textContent = "Enviando…";
   try {
     await enviarAlForm({ [CONFIG.ENTRY_NOMBRE]: nombreRegistrado, [CONFIG.ENTRY_TIPO]: "🙏 Petición de oración", [CONFIG.ENTRY_PETICION]: texto });
     $("peticion").value = "";
+    $("peticion-enviada").innerHTML = "<strong>Petición enviada.</strong> Estaremos orando por ti. 💕";
     $("caja-peticion").hidden = true; $("peticion-enviada").hidden = false; $("peticion-enviada").focus();
   } catch (e) {
     $("error-peticion").textContent = "No pudimos enviar tu petición. Revisa tu conexión e intenta otra vez.";
