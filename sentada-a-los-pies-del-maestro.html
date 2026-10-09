@@ -139,6 +139,8 @@
   }
   .resultados input{accent-color:var(--texto-magenta); width:1.2rem; height:1.2rem; flex:none}
   .resultados label:has(input:checked){border-color:var(--texto-magenta); background:var(--resalte)}
+  .ayuda-coordinadora{margin:1.4rem 0 0; text-align:center; color:var(--suave); font-size:1rem}
+  .ayuda-coordinadora strong{color:var(--texto-magenta)}
   .estado{min-height:1.5rem; margin:.25rem 0 0; color:var(--suave); font-size:.95rem}
   .error{color:var(--error); font-weight:500}
 
@@ -240,19 +242,7 @@
     <ul class="resultados" id="resultados"></ul>
     <button class="boton" id="b-presente-lista" disabled>Presente, estoy aquí</button>
     <p class="estado error" id="error-lista" aria-live="assertive"></p>
-    <button class="enlace" id="b-no-encuentro">No encuentro mi nombre</button>
-  </section>
-
-  <!-- 3 · Escribir el nombre -->
-  <section id="s-nueva" class="pantalla entrada" hidden aria-labelledby="t-nueva">
-    <div class="lockup pequeno" aria-hidden="true"><div class="sentada">SENTADA</div><div class="pies">a los pies del</div><div class="maestro">Maestro</div></div>
-    <h2 id="t-nueva">Escribe tu nombre</h2>
-    <p class="ayuda">Así quedará registrada tu presencia.</p>
-    <div class="campo"><label for="nombre">Nombre</label><input type="text" id="nombre" autocomplete="given-name" autocapitalize="words"></div>
-    <div class="campo"><label for="apellidos">Apellidos</label><input type="text" id="apellidos" autocomplete="family-name" autocapitalize="words"></div>
-    <button class="boton" id="b-presente-nueva">Presente, estoy aquí</button>
-    <p class="estado error" id="error-nueva" aria-live="assertive"></p>
-    <button class="enlace" id="b-volver-lista" hidden>Buscar mi nombre en la lista</button>
+    <p class="ayuda-coordinadora">¿No encuentras tu nombre? Busca a la coordinadora <strong>Margelis Sofía</strong>; ella te ayudará.</p>
   </section>
 
   <!-- 4 · Presente + programa + petición -->
@@ -366,20 +356,19 @@ const CONFIG = {
   } catch (e) { /* sin enlace todavía: modo de prueba */ }
 })();
 
-/* Lista de invitadas (lista real del evento, solo nombres).
-   Siempre queda la opción "No encuentro mi nombre" para escribirlo. */
-const LISTA = ["Abigail Lucuara", "Alejandra Gonzalez", "Alexandra Beverly", "Alexandra Colon", "Alexandra Velazquez Sanchez", "Aleysha", "Algeen Santiago", "Amanda Mercedes", "Amanda Velazquez", "Amarilis Duarte", "Amarilys Rivera", "Ana Gabriela", "Andrea Hernandez", "Angeles Morrero", "Ashley Cruz", "Beatriz Torres", "Bianca Aponte", "Brenda", "Brenda Peña Hernandez", "Carla", "Carmen Gomez", "Carmen Miranda", "Carmen Soto Pastrana", "Celimar Luciano", "Celimar Perez", "Charlene Mulero", "Coockie", "Coral Seijo", "Damaris Alvarez", "Daniela Rios", "Darisvette Crespo", "Diangely Caraballo", "Dorisa Figueroa", "Dra. Mariluz Serrano", "Elymar Toro", "Frankie", "Genesis Aviles", "Gladys Enid Ortiz", "Glaritza Soto", "Glendaliz Colon", "Grisselle Diaz", "Hemylie Vazquez", "Idenis Berrio", "Iris Curet", "Iris Laracuente", "Iris Miranda", "Jaemyliz Ocasio Rivera", "Jaimy Sustache del Moral", "Jasmine Perez", "Jenitza Velez", "Joelianiz Green", "Johanna Millan", "Joys Esquilin", "Karem Rodriguez", "Karie Pagan", "Karim Santiago", "Karla Carrion", "Karla Torres", "Katherine Diaz", "Kathia Avila", "Keiralee Zorrilla", "Keren Fuentes", "Kevin", "Keyla Rodriguez", "Keyshla Agosto", "Lcda. Adamarys Feliciano", "Lilliam García", "Linette Natal", "Lizbeth Becerril", "Luz Collazo Diaz", "Lydia Santiago", "Margaretly Quiñones", "Margelis", "Maria Martin", "Maria Ramos", "Mariely Colón", "Marilisa Berrios", "Marisel Vicente", "Meriemil Morales", "Natalia Brito Benitez", "Nichole Diaz Melendez", "Nomara", "Rafmari Alvarez Garcia", "Rooby Otero", "Rumarie Santiago", "Sandra Peña", "Sandra Sanchez Ramirez", "Shelimar Rosario", "Sonia Clavell", "Stefany Gutierrez", "Suhail", "Viviam Rodriguez", "Wilma Colon", "Wilmar Adorno", "Yamirka Davila", "Yanely Crespo", "Yaniz Agosto", "Yansel Morales", "Yashira Burgos Rodriguez", "Yashira Peroza", "Zeina Rosado", "Zenaida Ortiz", "Zomayra Davila", "Zorislava Santana", "Zuleyka Rosado"];
+/* Lista oficial del evento (Sheet2 de La Kazzita, sin el personal). */
+const LISTA = ["Abigail Lucuara", "Alejandra Gonzalez", "Alexandra Beverly", "Alexandra Colon", "Alexandra Velazquez Sanchez", "Algeen Santiago", "Amanda Mercedes", "Amanda Velazquez", "Amarilis Duarte", "Amarilys Rivera", "Ana Gabriela", "Andrea Hernandez", "Angeles Morrero", "Ashley Cruz", "Bianca Aponte", "Brenda Peña Hernandez", "Carmen Gomez", "Carmen Miranda", "Carmen Soto Pastrana", "Celimar Luciano", "Celimar Perez", "Chanty Vargas", "Charlene Mulero", "Chica de la limpieza", "Coral Seijo", "Damaris Alvarez", "Daniela Rios", "Darisvette Crespo", "Diangely Caraballo", "Dorisa Figueroa", "Elymar Toro", "Genesis Aviles", "Gladys Enid Ortiz", "Glendaliz Colon", "Grisselle Diazgr", "Hemylie Vazquez", "Idenis Berrio", "Iris Curet", "Iris Laracuente", "Iris Miranda", "Iris Rosario", "Jaemyliz Ocasio Rivera", "Jaimy Sustache del Moral", "Jasmine Perez", "Jenitza Velez", "Joelianiz Green", "Johanna Millan", "Joys Esquilin", "Karem Rodriguez", "Karie Pagan", "Karim Santiago", "Karla Carrion", "Karla Torres", "Katherine Diaz", "Kathia Avila", "Keiralee Zorrilla", "Keren Fuentes", "Keyla Rodriguez", "Keyshla Agosto", "Lilliam García", "Linette Natal", "Lizbeth Becerril", "Luz Collazo Diaz", "Lydia Santiago", "Margaretly Quiñones", "Maria Martin", "Maria Ramos", "Mariely Colón", "Marilisa Berrios", "Marisel Vicente", "Meriemil Morales", "Natalia Brito Benitez", "Nichole Diaz Melendez", "Rafmari Alvarez Garcia", "Rooby Otero", "Rumarie Santiago", "Sandra Peña", "Sandra Sanchez Ramirez", "Shelimar Rosario", "Stefany Gutierrez", "Viviam Rodriguez", "Wilma Colon", "Wilmar Adorno", "Yamirka Davila", "Yaniz Agosto", "Yansel Morales", "Yashira Burgos Rodriguez", "Yashira Peroza", "Zeina Rosado", "Zenaida Ortiz", "Zomayra Davila", "Zorislava Santana", "Zuleyka Rosado"];
 
 const DEMO = CONFIG.MODO !== "forms";
 const $ = (id) => document.getElementById(id);
-const pantallas = ["s-bienvenida", "s-buscar", "s-nueva", "s-listo", "s-panel"];
+const pantallas = ["s-bienvenida", "s-buscar", "s-listo", "s-panel"];
 const normalizar = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 let seleccion = null, nombreRegistrado = "";
 
 function mostrar(id) {
   pantallas.forEach(p => $(p).hidden = p !== id);
   window.scrollTo({ top: 0 });
-  const foco = { "s-buscar": "q", "s-nueva": "nombre", "s-listo": "t-listo" }[id];
+  const foco = { "s-buscar": "q", "s-listo": "t-listo" }[id];
   if (foco) setTimeout(() => $(foco).focus(), 60);
 }
 
@@ -421,8 +410,7 @@ function listo(nombre, yaEstaba) {
 
 /* --- Bienvenida --- */
 $("b-comenzar").addEventListener("click", () => {
-  $("b-volver-lista").hidden = !LISTA.length;
-  mostrar(LISTA.length ? "s-buscar" : "s-nueva");
+  mostrar("s-buscar");
 });
 
 /* --- Búsqueda en la lista --- */
@@ -434,7 +422,7 @@ $("q").addEventListener("input", (e) => {
   const palabras = q.split(" ");
   const res = LISTA.filter(n => palabras.every(w => normalizar(n).includes(w))).slice(0, 8);
   if (!res.length) {
-    $("estado-busqueda").textContent = "No aparece ese nombre. Prueba con tu apellido o escríbelo con la opción de abajo.";
+    $("estado-busqueda").textContent = "No aparece ese nombre. Prueba con tu apellido, o busca a la coordinadora Margelis Sofía.";
     return;
   }
   $("estado-busqueda").textContent = res.length === 1 ? "Encontramos 1 nombre." : `Encontramos ${res.length} nombres. Toca el tuyo.`;
@@ -455,21 +443,7 @@ $("b-presente-lista").addEventListener("click", async () => {
   btn.disabled = false; btn.textContent = "Presente, estoy aquí";
 });
 
-$("b-no-encuentro").addEventListener("click", () => mostrar("s-nueva"));
-$("b-volver-lista").addEventListener("click", () => mostrar("s-buscar"));
 
-/* --- Escribir el nombre --- */
-$("b-presente-nueva").addEventListener("click", async () => {
-  const nombre = $("nombre").value.trim(), apellidos = $("apellidos").value.trim();
-  if (!nombre || !apellidos) { $("error-nueva").textContent = "Escribe tu nombre y tus apellidos para registrar tu presencia."; return; }
-  $("error-nueva").textContent = "";
-  const completo = `${nombre} ${apellidos}`.replace(/\s+/g, " ");
-  const btn = $("b-presente-nueva");
-  btn.disabled = true; btn.textContent = "Registrando…";
-  try { listo(completo, await marcarPresente(completo, "nueva")); }
-  catch (e) { $("error-nueva").textContent = "No pudimos registrar tu presencia. Revisa tu conexión e intenta otra vez."; }
-  btn.disabled = false; btn.textContent = "Presente, estoy aquí";
-});
 
 /* --- Petición --- */
 $("b-peticion").addEventListener("click", async () => {
@@ -498,7 +472,7 @@ $("b-peticion").addEventListener("click", async () => {
 $("b-otra").addEventListener("click", () => {
   try { localStorage.removeItem("apm-yo"); } catch (e) {}
   nombreRegistrado = ""; seleccion = null;
-  ["q", "nombre", "apellidos", "peticion"].forEach(id => $(id).value = "");
+  ["q", "peticion"].forEach(id => $(id).value = "");
   $("resultados").innerHTML = ""; $("estado-busqueda").textContent = "";
   mostrar("s-bienvenida");
 });
