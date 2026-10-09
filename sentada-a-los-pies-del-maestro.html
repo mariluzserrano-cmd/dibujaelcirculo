@@ -400,7 +400,7 @@ async function marcarPresente(nombre, tipo) {
   const presentes = leer("apm-presentes", []);
   const yaEstaba = presentes.some(p => normalizar(p.nombre) === normalizar(nombre));
   if (!yaEstaba) {
-    await enviarAlForm({ [CONFIG.ENTRY_NOMBRE]: nombre, [CONFIG.ENTRY_TIPO]: tipo === "lista" ? "Presente · en la lista" : "Presente · no estaba en la lista" });
+    await enviarAlForm({ [CONFIG.ENTRY_NOMBRE]: nombre, [CONFIG.ENTRY_TIPO]: tipo === "lista" ? "✓ Presente · en la lista" : "✍️ Escrito a mano · no estaba en la lista" });
     presentes.push({ nombre, tipo });
     guardar("apm-presentes", presentes);
   }
@@ -479,7 +479,7 @@ $("b-peticion").addEventListener("click", async () => {
   const btn = $("b-peticion");
   btn.disabled = true; btn.textContent = "Enviando…";
   try {
-    await enviarAlForm({ [CONFIG.ENTRY_NOMBRE]: nombreRegistrado, [CONFIG.ENTRY_TIPO]: "Petición de oración", [CONFIG.ENTRY_PETICION]: texto });
+    await enviarAlForm({ [CONFIG.ENTRY_NOMBRE]: nombreRegistrado, [CONFIG.ENTRY_TIPO]: "🙏 Petición de oración", [CONFIG.ENTRY_PETICION]: texto });
     $("peticion").value = "";
     $("caja-peticion").hidden = true; $("peticion-enviada").hidden = false; $("peticion-enviada").focus();
   } catch (e) {
