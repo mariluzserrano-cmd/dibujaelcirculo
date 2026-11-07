@@ -4,7 +4,7 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
 (function installIntro(){
   Object.assign(TRANSCRIPTIONS,INTRO_TEXT);
   function makeCardIntro(d){
-    const badge=`<span class="badge full">Lectura transcrita</span>`;
+    const badge=d.id===1?`<span class="badge full">🎧 Audio y lectura disponibles</span>`:`<span class="badge full">Lectura transcrita</span>`;
     return `<button type="button" class="daycard" onclick="openIntro(${d.id})" aria-label="Abrir introducción ${d.part}, ${d.date}"><span class="cardnum">INTRODUCCIÓN ${d.part} · ${d.weekday.toUpperCase()} ${d.date}</span><span class="cardtitle">${d.title}</span><span class="cardfoot">🎙️ ${d.reader} · ${d.pages}</span>${badge}</button>`;
   }
   const baseHome=renderHome;
