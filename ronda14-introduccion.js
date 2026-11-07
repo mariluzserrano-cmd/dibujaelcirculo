@@ -19,12 +19,34 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
     }
   };
   const css=document.createElement("style");
-  css.textContent=".intro-prelude{padding:10px 0 23px;margin:12px 0 23px;border-bottom:1px solid var(--line)}.intro-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:15px}.intro-cards .daycard{min-height:147px}@media(max-width:650px){.intro-cards{grid-template-columns:1fr}}";
+  css.textContent=".intro-prelude{padding:10px 0 23px;margin:12px 0 23px;border-bottom:1px solid var(--line)}.intro-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:15px}.intro-cards .daycard{min-height:147px}.intro-audio{margin:16px 0 22px;padding:19px 22px;background:#fffefa;border:1px solid #e7dccd;border-left:5px solid var(--wine);border-radius:16px;box-shadow:0 5px 20px #32192110}.intro-audio .audiohead{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:baseline;color:var(--deep)}.intro-audio .audiohead strong{font-size:1.14rem}.intro-audio .audiohead span{color:var(--muted);font-size:.9rem}.intro-audio p{margin:9px 0;color:var(--ink)}.intro-audio iframe{max-width:100%;border:0;display:block;margin:12px 0}.intro-audio .audiolink{font-size:.92rem}.intro-audio .audiolink a,.intro-audio-side a{color:var(--wine);text-decoration:underline;text-underline-offset:3px}.intro-audio-side{border:1px solid var(--line);padding:14px;border-radius:12px;background:var(--cream);margin:12px 0 16px}.intro-audio-side strong{display:block;color:var(--deep)}.intro-audio-side p{margin:8px 0 12px}.intro-audio-side a{display:inline-block;margin:8px 0}@media(max-width:650px){.intro-cards{grid-template-columns:1fr}.intro-audio{padding:16px 14px}}";
   document.head.appendChild(css);
   const oldDay=renderDay;
   function decorateIntro(n){
     let label=document.querySelector(".dayid");
     if(label)label.textContent="INTRODUCCIÓN "+(n===1?"I":"II")+" · PREVIA AL DÍA 1 · RONDA 14";
+    // La primera introducción incluye la grabación compartida por Mariluz.
+    // Mostrar el audio cerca de la voz y facilitar el enlace desde la guía lateral.
+    if(n===1){
+      const who=document.querySelector(".who");
+      if(who){
+        const player=document.createElement("section");
+        player.id="audio-introduccion-1";
+        player.className="intro-audio";
+        player.setAttribute("aria-label","Grabación de la Introducción I");
+        player.innerHTML='<div class="audiohead"><strong>🎧 Escucha la introducción · Parte I</strong><span>Voz de Mariluz · Sábado 7 de noviembre</span></div><p>La lectura también está disponible en audio. Pulsa reproducir para escucharla sin salir del portal.</p><iframe title="Audio Vocaroo de la Introducción I, leído por Mariluz" width="300" height="60" src="https://vocaroo.com/embed/1f2vfgk07g9r?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe><p class="audiolink"><a href="https://voca.ro/1f2vfgk07g9r" target="_blank" rel="noopener noreferrer">↗ Abrir grabación en Vocaroo</a> <small>(alternativa si el reproductor no aparece)</small></p>';
+        who.insertAdjacentElement("afterend",player);
+      }
+      const sidebar=document.querySelector(".sidepanel");
+      if(sidebar){
+        const note=document.createElement("div");
+        note.className="intro-audio-side";
+        note.innerHTML='<strong>🎙️ Grabación disponible · Introducción I</strong><p>Escucha la voz de Mariluz en el reproductor que aparece junto al encabezado de esta jornada.</p><button type="button" class="navbtn" onclick="document.getElementById(\'audio-introduccion-1\').scrollIntoView({behavior:\'smooth\',block:\'center\'})">↑ Ir al audio</button> <a href="https://voca.ro/1f2vfgk07g9r" target="_blank" rel="noopener noreferrer">Vocaroo ↗</a>';
+        const header=sidebar.querySelector("h2");
+        if(header)header.insertAdjacentElement("afterend",note);
+        else sidebar.prepend(note);
+      }
+    }
     let cut=document.querySelector(".chapter-reading");
     if(cut){
       let bridge=document.createElement("div");bridge.className="readerintro";
