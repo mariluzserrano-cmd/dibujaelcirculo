@@ -83,9 +83,39 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
     renderIntro(n);
     window.scrollTo(0,0);
   };
+
+  // Reproductores de las grabaciones completas de los días 1 y 2.
+  // Se muestran solo en sus fichas, no se reproducen automáticamente.
+  const DAY_AUDIO={
+    1:{id:"17jqvbPyZI3I",reader:"Mariluz",label:"Día 1 · Examíname",date:"Lunes 9 de noviembre"},
+    2:{id:"1b9sb70HjSPM",reader:"Damaris",label:"Día 2 · Verdad o reto",date:"Martes 10 de noviembre"}
+  };
+  function decorateDayAudio(n){
+    const a=DAY_AUDIO[n];
+    if(!a)return;
+    const who=document.querySelector(".who");
+    if(who){
+      const player=document.createElement("section");
+      player.id="audio-dia-"+n;
+      player.className="intro-audio";
+      player.setAttribute("aria-label","Grabación de "+a.label);
+      player.innerHTML=`<div class="audiohead"><strong>🎧 Escucha la lectura · ${a.label}</strong><span>Voz: ${a.reader} · ${a.date}</span></div><p>Puedes escuchar esta lectura aquí o seguir el texto transcrito más abajo.</p><iframe title="Grabación en Vocaroo de ${a.label}, voz de ${a.reader}" width="300" height="60" src="https://vocaroo.com/embed/${a.id}?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe><p class="audiolink"><a href="https://voca.ro/${a.id}" target="_blank" rel="noopener noreferrer">↗ Abrir audio directamente en Vocaroo</a> <small>(si el reproductor no carga)</small></p>`;
+      who.insertAdjacentElement("afterend",player);
+    }
+    const sidebar=document.querySelector(".sidepanel");
+    if(sidebar){
+      const note=document.createElement("div");
+      note.className="intro-audio-side";
+      note.innerHTML=`<strong>🎙️ Grabación disponible · ${a.label}</strong><p>Escucha la lectura en la voz de ${a.reader}.</p><a href="#audio-dia-${n}" onclick="document.getElementById('audio-dia-${n}').scrollIntoView({behavior:'smooth',block:'center'});return false">↑ Ir al reproductor</a> &nbsp; <a href="https://voca.ro/${a.id}" target="_blank" rel="noopener noreferrer">Vocaroo ↗</a>`;
+      const header=sidebar.querySelector("h2");
+      if(header)header.insertAdjacentElement("afterend",note);
+      else sidebar.prepend(note);
+    }
+  }
   const originalDay=renderDay;
   renderDay=function(n){
     originalDay(n);
+    decorateDayAudio(n);
     if(n===1){
       for(const b of document.querySelectorAll("button.navbtn")){
         if(b.textContent.includes("Anterior")){
@@ -101,6 +131,8 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
   if(/^#intro-(1|2)$/.test(location.hash)){
     renderIntro(Number(location.hash.slice(-1)));
   } else {
-    renderHome();
+    const directDay=/^#dia-(\\d+)$/.exec(location.hash);
+    if(directDay)renderDay(Number(directDay[1]));
+    else renderHome();
   }
 })();
