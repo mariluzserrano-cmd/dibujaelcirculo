@@ -4,7 +4,7 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
 (function installIntro(){
   Object.assign(TRANSCRIPTIONS,INTRO_TEXT);
   function makeCardIntro(d){
-    const badge=d.id===1?`<span class="badge full">🎧 Audio y lectura disponibles</span>`:`<span class="badge full">Lectura transcrita</span>`;
+    const badge=`<span class="badge full">🎧 Audio y lectura disponibles</span>`;
     return `<button type="button" class="daycard" onclick="openIntro(${d.id})" aria-label="Abrir introducción ${d.part}, ${d.date}"><span class="cardnum">INTRODUCCIÓN ${d.part} · ${d.weekday.toUpperCase()} ${d.date}</span><span class="cardtitle">${d.title}</span><span class="cardfoot">🎙️ ${d.reader} · ${d.pages}</span>${badge}</button>`;
   }
   const baseHome=renderHome;
@@ -25,23 +25,26 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
   function decorateIntro(n){
     let label=document.querySelector(".dayid");
     if(label)label.textContent="INTRODUCCIÓN "+(n===1?"I":"II")+" · PREVIA AL DÍA 1 · RONDA 14";
-    // La primera introducción incluye la grabación compartida por Mariluz.
-    // Mostrar el audio cerca de la voz y facilitar el enlace desde la guía lateral.
-    if(n===1){
+
+    // Ambas introducciones incluyen su grabación, con reproductor y enlace alternativo.
+    if(n===1 || n===2){
+      const part=n===1?"I":"II";
+      const audioId=n===1?"1f2vfgk07g9r":"14HcNXiPWyxM";
+      const date=n===1?"Sábado 7 de noviembre":"Domingo 8 de noviembre";
       const who=document.querySelector(".who");
       if(who){
         const player=document.createElement("section");
-        player.id="audio-introduccion-1";
+        player.id="audio-introduccion-"+n;
         player.className="intro-audio";
-        player.setAttribute("aria-label","Grabación de la Introducción I");
-        player.innerHTML='<div class="audiohead"><strong>🎧 Escucha la introducción · Parte I</strong><span>Voz de Mariluz · Sábado 7 de noviembre</span></div><p>La lectura también está disponible en audio. Pulsa reproducir para escucharla sin salir del portal.</p><iframe title="Audio Vocaroo de la Introducción I, leído por Mariluz" width="300" height="60" src="https://vocaroo.com/embed/1f2vfgk07g9r?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe><p class="audiolink"><a href="https://voca.ro/1f2vfgk07g9r" target="_blank" rel="noopener noreferrer">↗ Abrir grabación en Vocaroo</a> <small>(alternativa si el reproductor no aparece)</small></p>';
+        player.setAttribute("aria-label","Grabación de la Introducción "+part);
+        player.innerHTML=`<div class="audiohead"><strong>🎧 Escucha la introducción · Parte ${part}</strong><span>Voz de Mariluz · ${date}</span></div><p>La lectura está disponible en audio. Pulsa reproducir para escucharla sin salir de este portal.</p><iframe title="Audio Vocaroo de la Introducción ${part}, leído por Mariluz" width="300" height="60" src="https://vocaroo.com/embed/${audioId}?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe><p class="audiolink"><a href="https://voca.ro/${audioId}" target="_blank" rel="noopener noreferrer">↗ Abrir grabación en Vocaroo</a> <small>(alternativa si el reproductor no aparece)</small></p>`;
         who.insertAdjacentElement("afterend",player);
       }
       const sidebar=document.querySelector(".sidepanel");
       if(sidebar){
         const note=document.createElement("div");
         note.className="intro-audio-side";
-        note.innerHTML='<strong>🎙️ Grabación disponible · Introducción I</strong><p>Escucha la voz de Mariluz en el reproductor que aparece junto al encabezado de esta jornada.</p><button type="button" class="navbtn" onclick="document.getElementById(\'audio-introduccion-1\').scrollIntoView({behavior:\'smooth\',block:\'center\'})">↑ Ir al audio</button> <a href="https://voca.ro/1f2vfgk07g9r" target="_blank" rel="noopener noreferrer">Vocaroo ↗</a>';
+        note.innerHTML=`<strong>🎙️ Grabación disponible · Introducción ${part}</strong><p>Escucha la voz de Mariluz en el reproductor que aparece junto al encabezado de esta jornada.</p><a href="#audio-introduccion-${n}" onclick="document.getElementById('audio-introduccion-${n}').scrollIntoView({behavior:'smooth',block:'center'});return false">↑ Ir al audio</a> &nbsp; <a href="https://voca.ro/${audioId}" target="_blank" rel="noopener noreferrer">Vocaroo ↗</a>`;
         const header=sidebar.querySelector("h2");
         if(header)header.insertAdjacentElement("afterend",note);
         else sidebar.prepend(note);
