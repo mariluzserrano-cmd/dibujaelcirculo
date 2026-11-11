@@ -84,13 +84,14 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
     window.scrollTo(0,0);
   };
 
-  // Reproductores de las grabaciones disponibles de los días 1, 2, 3 y 4.
+  // Reproductores de las grabaciones disponibles.
   // Se muestran solo en sus fichas, no se reproducen automáticamente.
   const DAY_AUDIO={
     1:{id:"17jqvbPyZI3I",reader:"Mariluz",label:"Día 1 · Examíname",date:"Lunes 9 de noviembre"},
     2:{id:"1b9sb70HjSPM",reader:"Damaris",label:"Día 2 · Verdad o reto",date:"Martes 10 de noviembre"},
     3:{id:"1fq3ZTRN74u7",reader:"Keishla Espiet",label:"Día 3 · El estado de tu corazón · Parte I",date:"Miércoles 11 de noviembre"},
-    4:{id:"1aWvSugyb7hJ",reader:"Nanichi",label:"Día 4 · El estado de tu corazón · Parte II",date:"Jueves 12 de noviembre"}
+    4:{id:"1aWvSugyb7hJ",reader:"Nanichi",label:"Día 4 · El estado de tu corazón · Parte II",date:"Jueves 12 de noviembre"},
+    5:{"id":"1jcHYg7ed72y","reader":"Yasmary","label":"Día 5 · Opciones difíciles · Parte I","date":"Viernes 13 de noviembre"}
   };
   function decorateDayAudio(n){
     const a=DAY_AUDIO[n];
