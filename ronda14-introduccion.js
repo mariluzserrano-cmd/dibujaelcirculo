@@ -140,25 +140,77 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
 })();
 
 // Capítulo 2.2 · Día 15 · Medeline. Lectura y acompañamiento de las páginas aportadas.
-(function installMedelineChapter(){
+(function installPreparedChapters(){
   const chapter={"id":15,"date":"23 de noviembre","weekday":"Lunes","title":"Rompe tu burbuja","ref":"2.2","part":"","pages":"pp. 65–67 · fotografías recibidas del capítulo 2.2","reader":"Medeline","stage":"quebrantame","focus":"Abandonar la zona de comodidad","idea":"Lo que Dios puede enseñarnos cuando nuestra burbuja se rompe.","biblia":"Salmo 51:10","scan_keys":["65","66","67"],"full":true,"missing":"","wordRef":"Salmo 51:10 · RVR1960","word":"Crea en mí, oh Dios, un corazón limpio,\nY renueva un espíritu recto dentro de mí.","life":"El capítulo muestra el choque entre nuestros planes y una palabra que no esperamos escuchar. ¿Qué parte de mis expectativas se apoya en el orgullo o en querer controlar los resultados? Abrirme al consejo y reconocer mis límites puede ayudarme a servir con más humildad. ¿Cómo puedo recibir orientación y cuidarme durante ese proceso?","prayer":"Dios, te entrego mis planes y mis expectativas. Crea en mí un corazón limpio. Ayúdame a reconocer mi orgullo, a recibir consejo con humildad y a confiar en tu amor mientras aprendo y cambio. Muéstrame un paso concreto para servir mejor hoy. Amén.","circle":"Dibuja una burbuja y escribe dentro una expectativa que tienes sobre tu vida, tu servicio o tus planes. En su borde anota una actitud que necesitas revisar: orgullo, necesidad de controlar o dificultad para escuchar. Abre una pequeña puerta en el contorno y escribe junto a ella: «Me abro a aprender». Fuera de la burbuja, anota un paso concreto para hoy: pedir consejo, escuchar sin interrumpir o reconocer un límite. Ese será tu acto de valentía.","pageStatus":"Transcripción de las tres fotografías aportadas: páginas 65, 66 y 67, en su orden. Los dos destacados de la página 67 repiten frases de la lectura y se muestran aparte para evitar leerlos dos veces durante la grabación."};
   const pages={"65":"A la avanzada edad de veintisiete años, me sentí llamado por Dios a fundar una nueva iglesia. Mi esposa, Amy, compartió mi visión, así que soñamos juntos y seguimos adelante con un plan. Elegimos un nombre para nuestra nueva iglesia e iniciamos los trámites. Reclutamos amigos que ya habían expresado interés en unirse a nosotros e imprimimos invitaciones para enviarlas a otras personas a las que esperábamos incorporar a medida que nuestra nueva iglesia arrancara.\n\nDecir que éramos idealistas sería quedarse corto. Con mucha más fe que sabiduría, imaginé cómo sería. Predicaría mensajes poderosos. La atmósfera sería eléctrica, con una adoración vibrante y una música dinámica. Se reuniría una gran multitud de personas. Se cambiarían vidas. Dios sería honrado. La ciudad sería diferente. Y viviríamos felices para siempre.\n\nCon mi plan claramente trazado en mi mente, me senté a desayunar con uno de mis mentores, Gary Walter. Después de haber ayudado a muchos emprendedores de iglesias jóvenes a fundar iglesias prósperas y vivificantes, Gary era considerado un experto. Con preocupación paternal y la sabiduría de un veterano espiritual,","66":"ayudó generosamente a darme dirección y perspectiva. Cuando me preguntó acerca de mis planes, apenas toqué mi plato de huevos con tocino mientras le explicaba con valentía mi visión.\n\nPero antes de que pudiera convencer a Gary de cómo nuestro pequeño grupo de fieles se convertiría en un movimiento mundial, me detuvo a mitad de la oración. No fue grosero ni brusco, de hecho, todo lo contrario. Nunca olvidaré el tono amoroso, paternal y pastoral de su voz cuando gentilmente me preguntó si podía decirme algo. Cuando asentí con la cabeza, dijo: «Tengo una promesa para ti y solo una promesa». Luego hizo una pausa durante un tiempo incómodamente largo, dejando que asimilara su declaración.\n\nMe apoyé en la mesa, conteniendo la respiración, anticipando lo que diría a continuación. ¿Una promesa? Si solo tenía una, entonces tenía que ser buena. ¿Qué era? Quizás Gary me prometería que Dios me abriría la puerta para declarar las buenas nuevas de Jesús a miles de personas en países de todo el mundo. Que Dios me usaría y usaría nuestra iglesia, para hacer más de lo que yo podría imaginar. Que el mundo sería diferente y mejor gracias a nuestros esfuerzos a través de la iglesia.\n\n«Mi única promesa para ti es esta: Dios te quebrantará». Las palabras de Gary, lentas, deliberadas y cálidas, me aplastaron con su peso.\n\nYo le devolví la mirada. Mi expresión probablemente mostraba una mezcla de traición y confusión. ¿Qué quieres decir? ¿Dios me quebrantará? ¿Qué clase de promesa es esta? ¿Por qué querría Dios quebrantarme? ¿Qué clase de mentor te dice eso? ¿Y qué clase de Dios permitiría que eso sucediera?\n\nLo que sucedió en los siguientes minutos después de esa declaración es confuso. No recuerdo si Gary siguió hablando. O si yo argumenté. O si me quedé allí sentado y dejé que su declaración profética me destrozara. Solo recuerdo el asombro de escuchar esas palabras. Eso era lo último que yo quería escuchar; lo último que","67":"quería creer; lo último que quería que sucediera. Quiero decir, estaba obedeciendo a Dios y haciendo lo que él quería que yo hiciera, ¿cierto? ¿No debería pasar todo lo contrario? ¿No debería Dios recompensarme o, al menos, no intentar quebrantarme?\n\nPor mucho que deseaba luchar contra la observación de Gary, sabía que lo que decía era cierto.\n\nÉl no rompió mi burbuja —la verdad lo hizo.\n\nDios me quebrantaría.\n\nY al menos en teoría, yo estaría mejor debido a eso.\n\nSi sobrevivía.\n\nUna vez que recuperé mi estabilidad, recuerdo a Gary explicando por qué éste era el camino que tendría que recorrer. Gary citó a A. W. Tozer, quien dijo: «Es dudoso que Dios pueda bendecir significativamente a un hombre hasta que no lo haya herido profundamente». Recuerdo haber pensado entonces lo que pienso ahora: No estoy seguro de que me guste esa idea. ¿Lo creía siquiera? ¿Es ese el precio que tenía que pagar para que Dios me utilizara significativamente? ¿No hay un camino más fácil?\n\nGary me recordó que Dios me amaba. Que siempre tiene en mente lo que es mejor para mí. Pero para que yo pudiera servir plenamente a Dios, tendría que estar vacío de mí mismo. Dios tendría que quebrantarme el orgullo, la confianza en mí mismo, la autosuficiencia. Y Dios también tendría que alejarme de cosas que ni siquiera sabía que necesitaban ser eliminadas de mi vida. Si quería servir para la gloria de Dios, entonces no había otra manera.\n\nTendría que entregarme a Dios.\n\nDios tendría que quebrantarme."};
   const notes={"67":[{"text":"Es dudoso que Dios pueda bendecir significativamente a un hombre hasta que no lo haya herido profundamente.","author":"A. W. Tozer"},{"text":"Para servir plenamente a Dios, tenemos que estar vacíos de nosotros mismos."}]};
   const guide="<div class=\"readerintro\"><strong>Guía de lectura para Medeline · capítulo 2.2</strong>Lee las páginas 65, 66 y 67 en ese orden. La frase final de la 65 continúa al principio de la 66; el último párrafo de la 66 continúa al inicio de la 67. Termina con «Dios tendría que quebrantarme». Los dos destacados laterales de la 67 repiten ideas del cuerpo del capítulo: no son párrafos nuevos.<br><br><strong>Puente narrativo sugerido</strong>«Seguimos nuestro recorrido con la oración ‘Quebrántame’. Hoy Craig Groeschel nos comparte sus planes para fundar una iglesia y una conversación inesperada con su mentor. Acompañemos esta historia con un corazón dispuesto a escuchar».<br><small>Este puente es un texto original de acompañamiento; no forma parte del libro. Adáptalo a la lectura real de Richard del día anterior.</small></div>";
-  Object.assign(DAYS.find(d=>d.id===chapter.id),chapter);
-  Object.assign(TRANSCRIPTIONS,pages);
-  Object.assign(MARGIN_NOTES,notes);
+  const chapter16 = {
+    "id": 16,
+    "reader": "Betsy Serrano",
+    "pages": "pp. 69–71 · capítulo 2.3",
+    "scan_keys": [
+      "69",
+      "70",
+      "71"
+    ],
+    "full": true,
+    "missing": "",
+    "biblia": "Romanos 12:2",
+    "wordRef": "Romanos 12:2 · RVR1960 (fragmento)",
+    "word": "No os conforméis a este siglo, sino transformaos por medio de la renovación de vuestro entendimiento…",
+    "life": "La conversación del grupo me invita a mirar con honestidad lo que temo cuando pienso en cambiar. ¿Qué me da descanso y qué costumbre sigo por inercia? Puedo empezar por un paso concreto, como escuchar un consejo, hablar de lo que me preocupa o pedir compañía para hacer un cambio.",
+    "prayer": "Señor, tú conoces lo que me da miedo cambiar. Ayúdame a reconocer la costumbre a la que me aferro y muéstrame un paso que pueda dar hoy con valentía y cuidado. Dame humildad para escuchar y confianza para pedir compañía mientras aprendo. Amén.",
+    "circle": "Dibuja un círculo como si fuera un cascarón. Dentro, escribe una costumbre que te da seguridad y que quieres revisar. Dibuja una pequeña abertura en el borde y anota junto a ella un paso que puedas dar hoy. Fuera del círculo, escribe qué apoyo te ayudaría a dar ese paso. Puedes empezar por pedir consejo, expresar una necesidad o intentar algo de una manera distinta.",
+    "pageStatus": "Transcripción de las páginas 69, 70 y 71, en el orden de las fotografías. El destacado de la página 70 repite una pregunta del texto."
+  };
+  const pages16 = {
+    "69": `Cuando pienso en hacer esta oración, «Señor, quebrántame», pienso en una experiencia que Amy y yo tuvimos una vez en nuestro pequeño grupo. En una fría y tempestuosa noche de miércoles de enero, nos sentamos alrededor de una habitación cálida y acogedora con otras siete u ocho parejas hablando, precisamente, de esta oración peligrosa. Me llamó la atención el contraste, si no la ironía, del tema sobre el que estábamos allí para debatir. Afuera probablemente hacía 15 grados Fahrenheit (-9 °C), con una sensación térmica cercana a cero. A pesar del miserable clima que hacía afuera, estábamos sentados en una cómoda sala de estar en sofás de cuero con un cálido fuego ardiendo en la esquina. Con el estómago lleno de chili casero y pan de maíz, nos enfocábamos ahora en lo que significaría hacer una oración tan peligrosa.
+
+Estuvimos de acuerdo en que todos queríamos hacerla —y hacerla en serio— pero no podíamos negar el miedo a las consecuencias. La primera mujer que habló, se tomaba en serio la posibilidad, pero reconocía su lucha. Una esposa amorosa y madre de cuatro hijos, había seguido fielmente a Jesús desde que estaba`,
+    "70": `en el segundo año de la escuela secundaria. Servía en el ministerio de niños en la iglesia, daba el diezmo fielmente, ayudaba a niños adoptados, asistía al estudio bíblico semanal y, a menudo, se ofrecía como voluntaria para orar en voz alta en grupos.
+
+Pero cuando se enfrentó a la opción de pedirle a Dios que la quebrantara, se negó. «Lo siento, pero tengo que ser honesta», dijo. «No quiero pedirle a Dios que me quebrante. Tengo miedo de lo que sucederá. Soy una madre con cuatro hijos. Los amo demasiado. Pedirle a Dios que me quebrante es simplemente demasiado aterrador. ¿Qué pasa si me enfermo o me deprimo o me alejo de mi familia?»
+
+La mayoría de las personas del pequeño grupo asintieron con la cabeza. Uno por uno, cada persona explicó por qué dudaban, tenían miedo y no estaban dispuestos a hacer esa oración peligrosa. Así que continuamos hablando de ello, cada uno de nosotros identificándonos y justificando por qué estaba bien no hacer una oración tan peligrosa. Todos nosotros cristianos, descansando cómodamente cerca del fuego, bebiendo café caliente con una música suave de alabanza de fondo.
+
+Al final de ese momento que pasamos juntos, aunque nadie lo oró en voz alta, el clamor de nuestro corazón parecía claro: «Mantennos cómodos, Dios. Mantennos cálidos y protegidos. No nos quebrantes, dolería demasiado. Por favor, mantén las cosas sin complicaciones».
+
+Pero mi pregunta sigue siendo la misma para todos nosotros hoy: ¿qué estamos perdiendo al aferrarnos a nuestra comodidad?
+
+¿Qué nos estamos perdiendo por estar tan comprometidos con evitar el dolor y la incomodidad?
+
+¿Podría haber algo al otro lado del sufrimiento que de alguna manera haga que valga la pena?`,
+    "71": `¿Podría ser que quebrantarnos fuera tan necesario para nuestro crecimiento como lo es para un pajarito romper el cascarón que lo rodea, o como lo es para una mariposa salir del capullo?
+
+¿Podría ser que el estar quebrantados nos libere para más de lo que podemos imaginar?`,
+  };
+  const guide16 = `<div class="readerintro"><strong>Guía de lectura para Betsy Serrano · capítulo 2.3</strong>Lee las páginas 69, 70 y 71 en ese orden. La frase que termina en «desde que estaba» continúa al inicio de la página 70. El destacado de la 70 repite una pregunta del texto. Léela una sola vez y cierra con las dos preguntas de la página 71.<br><br><strong>Puente narrativo sugerido</strong>«Después de ‘Rompe tu burbuja’, llegamos a ‘Statu quo’. Craig Groeschel recuerda la conversación de un pequeño grupo que quería orar ‘Señor, quebrántame’ y se atrevió a hablar del miedo que le daba esa oración. Escuchemos pensando en qué cambio nos cuesta afrontar».<br><small>Introducción de acompañamiento. Puedes ajustarla a lo que Medeline comparta en su lectura.</small></div>`;
+
+  const preparedChapters = new Map([
+    [chapter.id, { chapter, guide }],
+    [chapter16.id, { chapter: chapter16, guide: guide16 }],
+  ]);
+  for (const prepared of preparedChapters.values()) {
+    const day = DAYS.find(d => d.id === prepared.chapter.id);
+    Object.assign(day, prepared.chapter);
+  }
+  Object.assign(TRANSCRIPTIONS, pages, pages16);
+  Object.assign(MARGIN_NOTES, notes, { "70": "¿Qué estamos perdiendo al aferrarnos a nuestra comodidad?" });
   const renderChapterPage=function transcribedPage(k){let blocks=TRANSCRIPTIONS[k];if(!blocks)return '';let label=k==='31a'?'31 · primera sección':k==='31b'?'31 · continuación':k==='55a'?'55 · párrafo inicial':k==='55b'?'55 · continuación':k;let paras=blocks.split(/\n\s*\n/).filter(Boolean).map(p=>`<p>${esc(p.trim())}</p>`).join('');let notes=MARGIN_NOTES[k];let aside=notes?(Array.isArray(notes)?notes:[notes]).map(item=>{let note=typeof item==="string"?{text:item}:item;return `<div class="margintext"><span>Nota destacada al margen de la edición:</span> «${esc(note.text)}»${note.author?` <cite>— ${esc(note.author)}</cite>`:""} <small>(Repite una idea del texto; no es un párrafo adicional.)</small></div>`;}).join(""):"";return `<section class="transpage" aria-label="Página ${label}"><div class="pagehead"><span>PÁGINA ${label}</span><span>Craig Groeschel · Oraciones peligrosas</span></div><div class="booktext">${paras}</div>${aside}${photoItem(k)}</section>`};
   const previousPage=transcribedPage;
   transcribedPage=function(k){return Object.prototype.hasOwnProperty.call(pages,k)?renderChapterPage(k):previousPage(k);};
   const previousBridge=bridge;
-  bridge=function(d){return d.id===chapter.id?guide:previousBridge(d);};
+  bridge = function(d) {
+    return preparedChapters.get(d.id)?.guide ?? previousBridge(d);
+  };
   const previousDay=renderDay;
-  renderDay=function(n){
+  renderDay = function(n) {
     previousDay(n);
-    if(Number(n)===chapter.id){
-      const status=document.querySelector(".status");
-      if(status)status.innerHTML="<strong>✓ Lectura transcrita para esta jornada</strong><br>"+esc(chapter.pageStatus);
+    const prepared = preparedChapters.get(Number(n));
+    if (prepared) {
+      const status = document.querySelector(".status");
+      if (status) status.innerHTML = "<strong>✓ Lectura transcrita para esta jornada</strong><br>" + esc(prepared.chapter.pageStatus);
     }
   };
   if(!/^#intro-(1|2)$/.test(location.hash))render();
