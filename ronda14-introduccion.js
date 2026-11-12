@@ -91,7 +91,8 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
     2:{id:"1b9sb70HjSPM",reader:"Damaris",label:"Día 2 · Verdad o reto",date:"Martes 10 de noviembre"},
     3:{id:"1fq3ZTRN74u7",reader:"Keishla Espiet",label:"Día 3 · El estado de tu corazón · Parte I",date:"Miércoles 11 de noviembre"},
     4:{id:"1aWvSugyb7hJ",reader:"Nanichi",label:"Día 4 · El estado de tu corazón · Parte II",date:"Jueves 12 de noviembre"},
-    5:{"id":"1jcHYg7ed72y","reader":"Yasmary","label":"Día 5 · Opciones difíciles · Parte I","date":"Viernes 13 de noviembre"}
+    5:{"id":"1jcHYg7ed72y","reader":"Yasmary","label":"Día 5 · Opciones difíciles · Parte I","date":"Viernes 13 de noviembre"},
+    9:{"id":"19D2eTwTsXgK","file":"audio/ronda14-dia09-lymari-ortiz.mp3","reader":"Lymari Ortiz","label":"Día 9 · Descubre mis pecados · Parte I","date":"Martes 17 de noviembre"}
   };
   function decorateDayAudio(n){
     const a=DAY_AUDIO[n];
@@ -102,7 +103,13 @@ const INTRO_TEXT={"11":"«Oye, Craig, ¿crees que Dios todavía hace milagros?»
       player.id="audio-dia-"+n;
       player.className="intro-audio";
       player.setAttribute("aria-label","Grabación de "+a.label);
-      player.innerHTML=`<div class="audiohead"><strong>🎧 Escucha la lectura · ${a.label}</strong><span>Voz: ${a.reader} · ${a.date}</span></div><p>Puedes escuchar esta lectura aquí o seguir el texto transcrito más abajo.</p><iframe title="Grabación en Vocaroo de ${a.label}, voz de ${a.reader}" width="300" height="60" src="https://vocaroo.com/embed/${a.id}?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe><p class="audiolink"><a href="https://voca.ro/${a.id}" target="_blank" rel="noopener noreferrer">↗ Abrir audio directamente en Vocaroo</a> <small>(si el reproductor no carga)</small></p>`;
+      const playback = a.file
+        ? `<audio controls preload="metadata" aria-label="Grabación de ${a.label}, voz de ${a.reader}" style="display:block;width:100%;max-width:440px"><source src="${a.file}" type="audio/mpeg"><a href="${a.file}">Abrir el audio de ${a.reader}</a></audio>`
+        : `<iframe title="Grabación en Vocaroo de ${a.label}, voz de ${a.reader}" width="300" height="60" src="https://vocaroo.com/embed/${a.id}?autoplay=0" loading="lazy" frameborder="0" allow="autoplay"></iframe>`;
+      const originalLink = a.file
+        ? "↗ Abrir grabación original en Vocaroo"
+        : "↗ Abrir audio directamente en Vocaroo";
+      player.innerHTML=`<div class="audiohead"><strong>🎧 Escucha la lectura · ${a.label}</strong><span>Voz: ${a.reader} · ${a.date}</span></div><p>Puedes escuchar esta lectura aquí o seguir el texto transcrito más abajo.</p>${playback}<p class="audiolink"><a href="https://voca.ro/${a.id}" target="_blank" rel="noopener noreferrer">${originalLink}</a>${a.file ? '' : ' <small>(si el reproductor no carga)</small>'}</p>`;
       who.insertAdjacentElement("afterend",player);
     }
     const sidebar=document.querySelector(".sidepanel");
