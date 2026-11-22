@@ -223,3 +223,17 @@ Pero mi pregunta sigue siendo la misma para todos nosotros hoy: ¿qué estamos p
   };
   if(!/^#intro-(1|2)$/.test(location.hash))render();
 })();
+
+
+/* Día 14 · Audio de Richard en el portal de lectores. */
+(function () {
+  const previousRenderDay = renderDay;
+  renderDay = function (n) {
+    previousRenderDay(n);
+    if (Number(n) !== 14 || document.getElementById("audio-richard-dia14")) return;
+    const anchor = document.querySelector(".runorder");
+    if (!anchor) return;
+    anchor.insertAdjacentHTML("beforebegin", '<section id="audio-richard-dia14" aria-label="Audio del Día 14" style="margin:18px 0 22px;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:var(--shadow)"><div style="color:var(--wine);font-weight:800;font-size:16px;margin-bottom:9px">🎧 Escucha el audio · Día 14 · Richard</div><div style="max-width:380px"><iframe title="Audio de Richard del Día 14" width="100%" height="60" src="https://vocaroo.com/embed/18yDsVOD3QqS?autoplay=0" frameborder="0" loading="lazy" allow="autoplay" style="display:block;border:0;max-width:100%"></iframe></div><a href="https://voca.ro/18yDsVOD3QqS" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:9px;color:var(--wine);font-size:13px;font-weight:700;text-decoration:underline">Escuchar también en Vocaroo ↗</a></section>');
+  };
+  if (location.hash === "#dia-14") render();
+})();
